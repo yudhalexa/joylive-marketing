@@ -1,0 +1,159 @@
+/* joylive color palette */
+:root {
+    --joy-yellow: #FCAB50;
+    --joy-orange: #F36523;
+    --joy-red: #BF1E2D;
+    --joy-purple: #4B0738;
+    --joy-lightblue: #46C0CB;
+    --joy-blue: #179AAE;
+    --joy-teal: #0C6E77;
+}
+
+body {
+    /* width: 100%; */
+    width: 360px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px !important;
+    padding: 10px 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.header img {
+    height: 40px !important;
+    width: auto !important;
+}
+
+.video-icons {
+    /* clip: rect(0px, 12px, 0px, 12px); */
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+.icon-row {
+    display: flex;
+    width: max-content;
+    padding: 0 12px;
+}
+
+.icon-room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--joy-teal);
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 90px;
+    height: 110px;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.icon-room img {
+    object-fit: cover;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 30px;
+    flex-shrink: 0;
+}
+
+/* .video-icons:first-child {
+    margin-left: 12px;
+}
+
+.video-icons:last-child {
+    margin-right: 12px;
+} */
+
+.icon-text{
+    width: 85px;
+    text-align: center;
+}
+
+.body-footer {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.front {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.front img {
+    display: block;
+    width: 100%;
+}
+
+.front-text {
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 4.5px rgba(0, 0, 0, 75%);
+    font-weight: bold;
+}
+
+/* .front-text span {
+    
+} */
+
+.contact-us {
+    color: #fff;
+    height: 125px;
+    background-color: var(--joy-teal);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+.contact-us-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icon-social {
+    cursor: pointer;
+}
+
+.icon-social {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
