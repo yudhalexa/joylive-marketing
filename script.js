@@ -23,7 +23,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             this.style.color = 'white';
             this.style.width = '90px';
             this.querySelector('img').style.borderRadius = '30px';
-            front.innerHTML = `<video src="${videoSrc}" autoplay controls width="100%"></video>`;
+            front.innerHTML = `<video src="${videoSrc}" autoplay controls loop width="100%"></video>`;
         }
 
         if(clicked) {
