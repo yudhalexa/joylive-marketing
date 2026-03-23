@@ -42,6 +42,8 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             this.style.borderRadius = '10px';
             this.style.color = 'white';
             this.style.width = '90px';
+
+            document.querySelector('.front-view').scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
