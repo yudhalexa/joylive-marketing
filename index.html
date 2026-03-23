@@ -5,17 +5,17 @@
 </head>
 <body style="width:100%">
     <div class="container">
-        <div class="header">
+        <header class="header">
             <!-- logo joylive -->
             <img src="./marketing-assets/JOYLIVE LOGO COLOR PNG.png">
             <!-- hotel desc -->
             <span>
-                JOYLIVE HOTEL BSD City is 3-star hotel <br> with 136 Rooms & 3 Meeting Rooms
+                JOYLIVE HOTEL BSD City is 3-star hotel<br>with 136 Rooms & 3 Meeting Rooms
             </span>
-        </div>
+        </header>
         <div class="video-icons">
             <div class="icon-row">
-                <div class="icon-room"
+                <div class="icon-room" data-room="superior-twin"
                      data-video="./marketing-assets/ruangan/Superior_Room/Twin/superior_twin.mp4">
                     <img src="./marketing-assets/ruangan/Superior_Room/Twin/superior_twin.jpeg">
                     <div class="icon-text">
@@ -98,8 +98,8 @@
             </div>
         </div>
         <div class="body-footer">
-            <section>
-                <div class="front">
+            <section class="front-view">
+                <div class="front active" data-room="unclicked">
                     <img src="./marketing-assets/front.gif">
                     <div class="front-text">
                         <span style="font-size: 16px;">
@@ -111,11 +111,11 @@
                         </span>
                     </div>
                 </div>
-                <div class="room-video">
-                    <video src="./marketing-assets/ruangan/Superior_Room/Twin/superior_twin.mp4" autoplay controls loop></video>
+                <div class="room" data-room="superior-twin">
+                    <video src="./marketing-assets/ruangan/Superior_Room/Twin/superior_twin.mp4" loop></video>
                     <div class="room-text">
                         <span>
-                            Superior Room
+                            Superior Twin
                         </span>
                         <span style="font-size: 12px;">
                             &nbsp;(28m<sup>2</sup>)
