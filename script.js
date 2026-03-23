@@ -1,7 +1,8 @@
+// toggle video icons
+
 const front = document.querySelector('.front');
 const ogFront = front.innerHTML;
 
-// toggle video icons
 document.querySelectorAll('.icon-room').forEach(icon => {
     icon.addEventListener('click', function() {
         const clicked = this.classList.contains('active');
@@ -23,7 +24,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             this.style.color = 'white';
             this.style.width = '90px';
             this.querySelector('img').style.borderRadius = '30px';
-            front.innerHTML = `<video src="${videoSrc}" autoplay controls loop width="100%"></video>`;
+            front.innerHTML = `<video src="${videoSrc}" autoplay controls loop style="width: 100%; height: 100%;"></video>`;
         }
 
         if(clicked) {
