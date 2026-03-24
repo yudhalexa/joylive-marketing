@@ -49,3 +49,21 @@ document.querySelectorAll('.icon-room').forEach(icon => {
         }
     });
 });
+
+function playPause() {
+    const video = document.querySelector('.front-view .room.active video');
+    const playIcon = document.getElementById('play');
+    const pauseIcon = document.getElementById('pause');
+
+    if (!video) return;
+
+    if (video.paused) {
+        video.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+    } else {
+        video.pause();
+        pauseIcon.style.display = 'none';
+        playIcon.style.display = 'block';
+    }
+}

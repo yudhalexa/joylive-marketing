@@ -140,6 +140,15 @@ img {
     
 } */
 
+.room-video {
+    position: relative;
+}
+
+.video-controls {
+    position: absolute;
+    z-index: 10;
+}
+
 .room {
     aspect-ratio: 2 / 3;
 }
