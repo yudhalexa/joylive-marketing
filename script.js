@@ -70,6 +70,24 @@ function playPause() {
 }
 
 // video controls
+function fullscreen() {
+    const roomVideo = document.querySelector('.front-view .room.active .room-video');
+    const maxFullscreen = document.getElementById('maximize');
+    const minFullscreen = document.getElementById('minimize');
+
+    if (!roomVideo) return;
+
+    if (!document.fullscreenElement) {
+        roomVideo.requestFullscreen();
+        maxFullscreen.style.display = 'none';
+        minFullscreen.style.display = 'block';
+    } else {
+        document.exitFullscreen();
+        minFullscreen.style.display = 'none';
+        maxFullscreen.style.display = 'block';
+    }
+}
+
 document.querySelectorAll('.room').forEach(room => {
     const video = room.querySelector('video');
     const bar = room.querySelector('progress');

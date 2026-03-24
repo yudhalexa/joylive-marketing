@@ -164,6 +164,13 @@ progress {
     aspect-ratio: 2 / 3;
 }
 
+.room-video:fullscreen video,
+.room-video:-webkit-full-screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .room-text {
     height: 70px;
     display: flex;
