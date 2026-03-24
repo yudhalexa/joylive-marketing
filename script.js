@@ -32,6 +32,8 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             frontDiv.style.display = 'none';
             allRooms.forEach(s => {
                 s.classList.toggle('active', s.dataset.room === target);
+                const v = s.querySelector('video');
+                if (v) { v.pause(); v.currentTime = 0; }
             });
 
             const activeVideo = document.querySelector(`.front-view .room[data-room="${target}"] video`);
