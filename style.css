@@ -142,6 +142,7 @@ img {
 
 .room-video {
     position: relative;
+    width: 100%;
 }
 
 .video-controls {
@@ -151,10 +152,43 @@ img {
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+}
+
+.controls-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 progress {
-    flex-grow: 1;
+    width: 175px;
+    height: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(100, 100, 100, 50%);
+    border-radius: 2px;
+}
+
+progress::-webkit-progress-value {
+    background-color: white;
+    border-radius: 2px;
+}
+
+progress::-moz-progress-bar {
+    background-color: white;
+    border-radius: 2px;
 }
 
 .room {
@@ -184,7 +218,7 @@ progress {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 5px;
 }
 
 .controls-icon button {
@@ -201,6 +235,9 @@ progress {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+
+    -webkit-filter: drop-shadow(0 0 4px rgba(0, 0, 0, 25%));
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 25%));
 }
 
 .room-text {
