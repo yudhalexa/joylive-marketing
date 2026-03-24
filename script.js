@@ -50,6 +50,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
     });
 });
 
+// play-pause button interaction
 function playPause() {
     const video = document.querySelector('.front-view .room.active video');
     const playIcon = document.getElementById('play');
@@ -66,4 +67,28 @@ function playPause() {
         pauseIcon.style.display = 'none';
         playIcon.style.display = 'block';
     }
+}
+
+// video controls
+document.querySelectorAll('.room').forEach(room => {
+    const video = room.querySelector('video');
+    const bar = room.querySelector('progress');
+
+    if (!video || !bar) return;
+
+    video.addEventListener('loadedmetadata', () => {
+        bar.max = video.duration;
+    });
+
+    video.addEventListener('timeupdate', () => {
+        if (!isFinite(video.duration)) return;
+        bar.max = video.duration;
+        bar.value = video.currentTime;
+    });
+});
+
+function skip(seconds) {
+    const video = document.querySelector('.front-view .room.active video');
+    if (!video) return;
+    video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
 }

@@ -99,7 +99,7 @@ img {
 }
 
 .front-view {
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 2 / 3 !important;
 }
 
 .front-view .room {
@@ -149,6 +149,10 @@ img {
     z-index: 10;
 }
 
+progress {
+    flex-grow: 1;
+}
+
 .room {
     aspect-ratio: 2 / 3;
 }
@@ -157,6 +161,7 @@ img {
     width: 100%; 
     height: 100%;
     object-fit: cover;
+    aspect-ratio: 2 / 3;
 }
 
 .room-text {
