@@ -32,6 +32,8 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             frontDiv.style.display = 'none';
             allRooms.forEach(s => {
                 s.classList.toggle('active', s.dataset.room === target);
+                const v = s.querySelector('video');
+                if (v) { v.pause(); v.currentTime = 0; }
             });
 
             const activeVideo = document.querySelector(`.front-view .room[data-room="${target}"] video`);
@@ -47,3 +49,64 @@ document.querySelectorAll('.icon-room').forEach(icon => {
         }
     });
 });
+
+// play-pause button interaction
+function playPause() {
+    const video = document.querySelector('.front-view .room.active video');
+    const playIcon = document.getElementById('play');
+    const pauseIcon = document.getElementById('pause');
+
+    if (!video) return;
+
+    if (video.paused) {
+        video.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+    } else {
+        video.pause();
+        pauseIcon.style.display = 'none';
+        playIcon.style.display = 'block';
+    }
+}
+
+// video controls
+function fullscreen() {
+    const roomVideo = document.querySelector('.front-view .room.active .room-video');
+    const maxFullscreen = document.getElementById('maximize');
+    const minFullscreen = document.getElementById('minimize');
+
+    if (!roomVideo) return;
+
+    if (!document.fullscreenElement) {
+        roomVideo.requestFullscreen();
+        maxFullscreen.style.display = 'none';
+        minFullscreen.style.display = 'block';
+    } else {
+        document.exitFullscreen();
+        minFullscreen.style.display = 'none';
+        maxFullscreen.style.display = 'block';
+    }
+}
+
+document.querySelectorAll('.room').forEach(room => {
+    const video = room.querySelector('video');
+    const bar = room.querySelector('progress');
+
+    if (!video || !bar) return;
+
+    video.addEventListener('loadedmetadata', () => {
+        bar.max = video.duration;
+    });
+
+    video.addEventListener('timeupdate', () => {
+        if (!isFinite(video.duration)) return;
+        bar.max = video.duration;
+        bar.value = video.currentTime;
+    });
+});
+
+function skip(seconds) {
+    const video = document.querySelector('.front-view .room.active video');
+    if (!video) return;
+    video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
+}
