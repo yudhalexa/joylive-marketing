@@ -147,6 +147,10 @@ img {
 .video-controls {
     position: absolute;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 progress {
@@ -169,6 +173,34 @@ progress {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.video-controls button {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.controls-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.controls-icon button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+}
+
+.controls-icon svg {
+    color: white;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 .room-text {
