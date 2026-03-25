@@ -1,3 +1,22 @@
+// floating jingle toggle
+function jingle() {
+    const audio = document.querySelector('.floating-jingle audio');
+    const muteIcon = document.getElementById('mute');
+    const unmuteIcon = document.getElementById('unmute');
+
+    if (!audio) return;
+
+    if (audio.paused) {
+        audio.play();
+        muteIcon.style.display = 'none';
+        unmuteIcon.style.display = 'block';
+    } else {
+        audio.pause();
+        unmuteIcon.style.display = 'none';
+        muteIcon.style.display = 'block';
+    }
+}
+
 // toggle video icons
 
 const front = document.querySelector('.front');
