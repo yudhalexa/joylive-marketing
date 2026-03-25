@@ -294,3 +294,15 @@ progress::-moz-progress-bar {
     justify-content: center;
     align-items: center;
 }
+
+.floating-jingle button {
+    background-color: var(--joy-red);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border-color: transparent;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 25%);
+    display: flex;
+    align-items: center;
+}
