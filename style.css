@@ -143,6 +143,8 @@ img {
 .room-video {
     position: relative;
     width: 100%;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
 }
 
 .video-controls {
@@ -164,11 +166,13 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 14px;
 }
 
 progress {
+    display: block;
     width: 175px;
-    height: 5px;
+    height: 3px;
     appearance: none;
     -webkit-appearance: none;
     border: none;
@@ -177,7 +181,7 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-    background-color: rgba(100, 100, 100, 50%);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 2px;
 }
 

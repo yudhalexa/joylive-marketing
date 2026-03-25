@@ -52,9 +52,10 @@ document.querySelectorAll('.icon-room').forEach(icon => {
 
 // play-pause button interaction
 function playPause() {
-    const video = document.querySelector('.front-view .room.active video');
-    const playIcon = document.getElementById('play');
-    const pauseIcon = document.getElementById('pause');
+    const activeRoom = document.querySelector('.front-view .room.active');
+    const video = activeRoom?.querySelector('video');
+    const playIcon = activeRoom?.querySelector('.icon-play');
+    const pauseIcon = activeRoom?.querySelector('.icon-pause');
 
     if (!video) return;
 
@@ -71,20 +72,21 @@ function playPause() {
 
 // video controls
 function fullscreen() {
-    const roomVideo = document.querySelector('.front-view .room.active .room-video');
-    const maxFullscreen = document.getElementById('maximize');
-    const minFullscreen = document.getElementById('minimize');
+    const activeRoom = document.querySelector('.front-view .room.active');
+    const roomVideo = activeRoom?.querySelector('.room-video');
+    const maxIcon = activeRoom?.querySelector('.icon-maximize');
+    const minIcon = activeRoom?.querySelector('.icon-minimize');
 
     if (!roomVideo) return;
 
     if (!document.fullscreenElement) {
         roomVideo.requestFullscreen();
-        maxFullscreen.style.display = 'none';
-        minFullscreen.style.display = 'block';
+        maxIcon.style.display = 'none';
+        minIcon.style.display = 'block';
     } else {
         document.exitFullscreen();
-        minFullscreen.style.display = 'none';
-        maxFullscreen.style.display = 'block';
+        minIcon.style.display = 'none';
+        maxIcon.style.display = 'block';
     }
 }
 
