@@ -1,8 +1,14 @@
 // floating jingle toggle
-setTimeout(() => {
-    const floatingJingle = document.querySelector('.floating-jingle');
-    if (floatingJingle) floatingJingle.classList.add('visible');
-}, 3000);
+
+window.addEventListener('scroll', function() {
+    // const floatingJingle = document.querySelector('.floating-jingle');
+    // if (floatingJingle) floatingJingle.classList.add('visible');
+
+    setTimeout(() => {
+        const floatingJingle = document.querySelector('.floating-jingle');
+        if (floatingJingle) floatingJingle.classList.add('visible');
+    }, 3000);
+}, { once: true});
 
 function jingle() {
     const audio = document.querySelector('.floating-jingle audio');
@@ -23,7 +29,6 @@ function jingle() {
 }
 
 // toggle video icons
-
 const front = document.querySelector('.front');
 const ogFront = front.innerHTML;
 
