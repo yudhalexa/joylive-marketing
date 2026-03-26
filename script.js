@@ -1,4 +1,9 @@
 // floating jingle toggle
+setTimeout(() => {
+    const floatingJingle = document.querySelector('.floating-jingle');
+    if (floatingJingle) floatingJingle.classList.add('visible');
+}, 3000);
+
 function jingle() {
     const audio = document.querySelector('.floating-jingle audio');
     const muteIcon = document.getElementById('mute');
