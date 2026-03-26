@@ -8,7 +8,15 @@ window.addEventListener('scroll', function() {
         const floatingJingle = document.querySelector('.floating-jingle');
         if (floatingJingle) floatingJingle.classList.add('visible');
     }, 3000);
+
+    var jingle = new Audio('./marketing-assets/jingle.mp3');
+    jingle.play();
 }, { once: true});
+
+// setTimeout(() => {
+//     var jingle = new Audio('./marketing-assets/jingle.mp3');
+//     jingle.play();
+// }, 3000);
 
 function jingle() {
     const audio = document.querySelector('.floating-jingle audio');
