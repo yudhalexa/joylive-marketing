@@ -12,7 +12,6 @@ setTimeout(() => {
 }, 3000);
 
 function jingle() {
-    // const audio = document.querySelector('.floating-jingle audio');
     const muteIcon = document.getElementById('mute');
     const unmuteIcon = document.getElementById('unmute');
 
@@ -58,6 +57,13 @@ document.querySelectorAll('.icon-room').forEach(icon => {
                 if (v) { v.pause(); v.currentTime = 0; }
             });
             this.style.color = 'var(--joy-teal)';
+
+            // const floatingJingle = document.querySelector('.floating-jingle');
+            // if (floatingJingle) floatingJingle.classList.add('visible');
+
+            // jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
+            // jingleMp3.loop = true;
+            // jingleMp3.play();
         } else {
             frontDiv.style.display = 'none';
             allRooms.forEach(s => {
@@ -80,7 +86,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
     });
 });
 
-// play-pause button interaction
+// video controls
 function playPause() {
     const activeRoom = document.querySelector('.front-view .room.active');
     const video = activeRoom?.querySelector('video');
@@ -100,7 +106,6 @@ function playPause() {
     }
 }
 
-// video controls
 function fullscreen() {
     const activeRoom = document.querySelector('.front-view .room.active');
     const roomVideo = activeRoom?.querySelector('.room-video');
