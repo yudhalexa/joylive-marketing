@@ -1,36 +1,29 @@
 // floating jingle toggle
 
-window.addEventListener('scroll', function() {
-    // const floatingJingle = document.querySelector('.floating-jingle');
-    // if (floatingJingle) floatingJingle.classList.add('visible');
+let jingleMp3 = null;
 
-    setTimeout(() => {
-        const floatingJingle = document.querySelector('.floating-jingle');
-        if (floatingJingle) floatingJingle.classList.add('visible');
-    }, 3000);
+setTimeout(() => {
+    const floatingJingle = document.querySelector('.floating-jingle');
+    if (floatingJingle) floatingJingle.classList.add('visible');
 
-    var jingle = new Audio('./marketing-assets/jingle.mp3');
-    jingle.play();
-}, { once: true});
-
-// setTimeout(() => {
-//     var jingle = new Audio('./marketing-assets/jingle.mp3');
-//     jingle.play();
-// }, 3000);
+    jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
+    jingleMp3.loop = true;
+    jingleMp3.play();
+}, 3000);
 
 function jingle() {
-    const audio = document.querySelector('.floating-jingle audio');
+    // const audio = document.querySelector('.floating-jingle audio');
     const muteIcon = document.getElementById('mute');
     const unmuteIcon = document.getElementById('unmute');
 
-    if (!audio) return;
+    if (!jingleMp3) return;
 
-    if (audio.paused) {
-        audio.play();
+    if (jingleMp3.paused) {
+        jingleMp3.play();
         muteIcon.style.display = 'none';
         unmuteIcon.style.display = 'block';
     } else {
-        audio.pause();
+        jingleMp3.pause();
         unmuteIcon.style.display = 'none';
         muteIcon.style.display = 'block';
     }

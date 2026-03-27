@@ -251,11 +251,14 @@ progress::-moz-progress-bar {
 }
 
 .room-text {
+    color: rgba(0, 0, 0, 75%);
     height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Inria Sans';
     font-size: 16px;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
@@ -321,4 +324,5 @@ progress::-moz-progress-bar {
     box-shadow: 0 0 4px rgba(0, 0, 0, 25%);
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
