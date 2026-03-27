@@ -251,11 +251,14 @@ progress::-moz-progress-bar {
 }
 
 .room-text {
+    color: rgba(0, 0, 0, 75%);
     height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 16px;
+    font-weight: bold;
+    font-family: 'Inria Sans';
     text-transform: uppercase;
 }
 
