@@ -1,15 +1,7 @@
 // floating jingle toggle
 
-let jingleMp3 = null;
-
-setTimeout(() => {
-    const floatingJingle = document.querySelector('.floating-jingle');
-    if (floatingJingle) floatingJingle.classList.add('visible');
-
-    jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
-    jingleMp3.loop = true;
-    jingleMp3.play();
-}, 3000);
+jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
+jingleMp3.loop = true;
 
 function jingle() {
     const muteIcon = document.getElementById('mute');
@@ -58,12 +50,6 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             });
             this.style.color = 'var(--joy-teal)';
 
-            // const floatingJingle = document.querySelector('.floating-jingle');
-            // if (floatingJingle) floatingJingle.classList.add('visible');
-
-            // jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
-            // jingleMp3.loop = true;
-            // jingleMp3.play();
         } else {
             frontDiv.style.display = 'none';
             allRooms.forEach(s => {
@@ -83,6 +69,21 @@ document.querySelectorAll('.icon-room').forEach(icon => {
 
             document.querySelector('.front-view').scrollIntoView({ behavior: 'smooth' });
         }
+            const floatingJingle = document.querySelector('.floating-jingle');
+            if (floatingJingle) floatingJingle.classList.add('visible');
+
+            if (jingleMp3.paused) {
+                jingleMp3.play();
+            }
+
+            // setTimeout(() => {
+            //     const floatingJingle = document.querySelector('.floating-jingle');
+            //     if (floatingJingle) floatingJingle.classList.add('visible');
+                
+            //     if (jingleMp3.paused) {
+            //         jingleMp3.play();
+            //     }
+            // }, 3000);
     });
 });
 
