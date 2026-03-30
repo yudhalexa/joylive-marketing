@@ -1,5 +1,26 @@
-// toggle video icons
+// floating jingle toggle
 
+jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
+jingleMp3.loop = true;
+
+function jingle() {
+    const muteIcon = document.getElementById('mute');
+    const unmuteIcon = document.getElementById('unmute');
+
+    if (!jingleMp3) return;
+
+    if (jingleMp3.paused) {
+        jingleMp3.play();
+        muteIcon.style.display = 'none';
+        unmuteIcon.style.display = 'block';
+    } else {
+        jingleMp3.pause();
+        unmuteIcon.style.display = 'none';
+        muteIcon.style.display = 'block';
+    }
+}
+
+// toggle video icons
 const front = document.querySelector('.front');
 const ogFront = front.innerHTML;
 
@@ -28,6 +49,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
                 if (v) { v.pause(); v.currentTime = 0; }
             });
             this.style.color = 'var(--joy-teal)';
+
         } else {
             frontDiv.style.display = 'none';
             allRooms.forEach(s => {
@@ -47,10 +69,25 @@ document.querySelectorAll('.icon-room').forEach(icon => {
 
             document.querySelector('.front-view').scrollIntoView({ behavior: 'smooth' });
         }
+            const floatingJingle = document.querySelector('.floating-jingle');
+            if (floatingJingle) floatingJingle.classList.add('visible');
+
+            if (jingleMp3.paused) {
+                jingleMp3.play();
+            }
+
+            // setTimeout(() => {
+            //     const floatingJingle = document.querySelector('.floating-jingle');
+            //     if (floatingJingle) floatingJingle.classList.add('visible');
+                
+            //     if (jingleMp3.paused) {
+            //         jingleMp3.play();
+            //     }
+            // }, 3000);
     });
 });
 
-// play-pause button interaction
+// video controls
 function playPause() {
     const activeRoom = document.querySelector('.front-view .room.active');
     const video = activeRoom?.querySelector('video');
@@ -70,7 +107,6 @@ function playPause() {
     }
 }
 
-// video controls
 function fullscreen() {
     const activeRoom = document.querySelector('.front-view .room.active');
     const roomVideo = activeRoom?.querySelector('.room-video');
