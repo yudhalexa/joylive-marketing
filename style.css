@@ -50,7 +50,6 @@ img {
     width: 100%;
     overflow-x: auto;
     box-sizing: border-box;
-    /* mask-border: var(--joy-blue) 12px; */
 }
 
 .icon-row {
