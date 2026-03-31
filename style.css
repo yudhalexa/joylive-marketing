@@ -326,3 +326,21 @@ progress::-moz-progress-bar {
     align-items: center;
     cursor: pointer;
 }
+
+@media (min-width: 1000px) {
+    .video-icons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .front {
+        height: auto;
+        width: 1080px;
+    }
+
+    .front-view {
+        display: flex;
+        justify-content: center;
+        background-color: var(--joy-purple);
+    }
+}
