@@ -102,7 +102,7 @@ img {
 }
 
 .front-view {
-    aspect-ratio: 2 / 3 !important;
+    aspect-ratio: 2 / 3;
 }
 
 .front-view .room {

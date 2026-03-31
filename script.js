@@ -1,6 +1,6 @@
 // floating jingle toggle
 
-jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
+let jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
 jingleMp3.loop = true;
 
 function jingle() {
