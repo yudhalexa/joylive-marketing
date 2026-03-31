@@ -286,9 +286,9 @@ progress::-moz-progress-bar {
     gap: 20px;
 }
 
-.icon-social {
+/* .icon-social {
     cursor: pointer;
-}
+} */
 
 .icon-social {
     width: 40px;
@@ -307,7 +307,7 @@ progress::-moz-progress-bar {
     padding: 25px;
     right: 0px;
     bottom: -90px;
-    transition: bottom 0.4s ease-out;
+    transition: bottom 0.3s ease-out;
     opacity: 50%;
 }
 

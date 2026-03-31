@@ -62,12 +62,15 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             if (activeVideo) activeVideo.play();
 
             this.classList.add('active');
+            this.style.transition = '0.3s ease-out';
             this.style.backgroundColor = 'var(--joy-red)';
             this.style.borderRadius = '10px';
             this.style.color = 'white';
             this.style.width = '90px';
 
-            document.querySelector('.front-view').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                document.querySelector('.front-view').scrollIntoView({ behavior: 'smooth' });
+            }, 500);
         }
             const floatingJingle = document.querySelector('.floating-jingle');
             if (floatingJingle) floatingJingle.classList.add('visible');
