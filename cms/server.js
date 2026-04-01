@@ -3,7 +3,10 @@ const cors = require('cors');
 const { google } = require('googleapis');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  exposedHeaders: ['Content-Type', 'Content-Length']
+}));
 
 const auth = new google.auth.GoogleAuth({
   keyFile: './credentials.json',
@@ -67,11 +70,18 @@ app.get('/api/media', async (req, res) => {
 
 app.get('/api/file/:id', async (req, res) => {
   try {
+    const meta = await drive.files.get(
+      { fileId: req.params.id, fields: 'mimeType' }
+    );
+    
     const file = await drive.files.get(
       { fileId: req.params.id, alt: 'media' },
       { responseType: 'stream' }
     );
-    res.setHeader('Content-Type', file.headers['content-type']);
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    res.setHeader('Content-Type', meta.data.mimeType);
     file.data.pipe(res);
   } catch (err) {
     res.status(500).json({ error: err.message });
