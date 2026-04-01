@@ -208,10 +208,14 @@ fetch('http://localhost:3000/api/media')
         fileIndex[f.name] = f.id;
     });
 
+    console.log('fileIndex:', fileIndex);
+    console.log('video els:', document.querySelectorAll('.room video'));
+
     Object.entries(roomFileMap).forEach(([room, names]) => {
         const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
         if (videoEl && fileIndex[names.video]) {
-            videoEl.src = `http://localhost:3000/api/file${fileIndex[names.video]}`;
+            videoEl.src = `http://localhost:3000/api/file/${fileIndex[names.video]}`;
+            videoEl.load();
         }
 
         const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
@@ -219,5 +223,5 @@ fetch('http://localhost:3000/api/media')
             imgEl.src = `http://localhost:3000/api/file/${fileIndex[names.image]}`;
         }
     });
-  })
-  .catch(err => console.error('Drive fetch failed:', err));
+    })
+    .catch(err => console.error('Drive fetch failed:', err));
