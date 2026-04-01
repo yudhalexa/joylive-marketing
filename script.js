@@ -151,3 +151,16 @@ function skip(seconds) {
     if (!video) return;
     video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
 }
+
+// google drive API
+fetch('http://localhost:3000/api/media')
+  .then(r => r.json())
+  .then(files => {
+    files.forEach(file => {
+      if (file.mimeType.startsWith('image/')) {
+        const img = document.createElement('img');
+        img.src = `http://localhost:3000/api/file/${file.id}`;
+        document.body.appendChild(img);
+      }
+    });
+  });
