@@ -153,14 +153,71 @@ function skip(seconds) {
 }
 
 // google drive API
+const roomFileMap = {
+    'superior-twin':{
+        video:'superior_twin.mp4',
+        image:'superior_twin.jpeg'
+    },
+    'superior-double':{
+        video:'superior_double.mp4',
+        image:'superior_double.jpg'
+    },
+    'deluxe-room':{
+        video:'deluxe_room.mp4',
+        image:'deluxe.jpg'
+    },
+    'meet-space-a':{
+        video:'meet_space_a.mp4',
+        image:'spaceA.jpeg'
+    },
+    'meet-space-b':{
+        video:'meet_space_b.mp4',
+        image:'spaceB.jpeg'
+    },
+    'meet-space-c':{ 
+        video:'meet_space_c.mp4',
+        image:'spaceC.jpg'
+    },
+    'soul-kitchen':{ 
+        video:'soul_kitchen.mp4',
+        image:'soul.jpeg'
+    },
+    'gym':{
+        video:'gym.mp4',
+        image:'gym.jpg'
+    },
+    'in-room-spa':{
+        video:'spa.mp4',
+        image:'spa.jpg'
+    },
+    'laundromat':{
+        video:'laundromat.mp4',
+        image:'laundromat.jpeg'
+    },
+    'musholla':{
+        video:'musholla.mp4',
+        image:'musholla.jpeg'
+    },
+};
+
 fetch('http://localhost:3000/api/media')
-  .then(r => r.json())
-  .then(files => {
-    files.forEach(file => {
-      if (file.mimeType.startsWith('image/')) {
-        const img = document.createElement('img');
-        img.src = `http://localhost:3000/api/file/${file.id}`;
-        document.body.appendChild(img);
-      }
+    .then(r => r.json())
+    .then(files => {
+    const fileIndex = {};
+    files.forEach(f => {
+        fileIndex[f.name] = f.id;
     });
-  });
+
+    Object.entries(roomFileMap).forEach(([room, names]) => {
+        const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
+        if (videoEl && fileIndex[names.video]) {
+            videoEl.src = `http://localhost:3000/api/file${fileIndex[names.video]}`;
+        }
+
+        const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
+        if (imgEl && fileIndex[names.image]) {
+            imgEl.src = `http://localhost:3000/api/file/${fileIndex[names.image]}`;
+        }
+    });
+  })
+  .catch(err => console.error('Drive fetch failed:', err));
