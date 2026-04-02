@@ -200,7 +200,7 @@ const roomFileMap = {
     },
 };
 
-fetch('http://localhost:3000/api/media')
+fetch('http://10.5.51.210:3000/api/media')
     .then(r => r.json())
     .then(files => {
     const fileIndex = {};
@@ -214,7 +214,7 @@ fetch('http://localhost:3000/api/media')
     Object.entries(roomFileMap).forEach(([room, names]) => {
         const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
         if (videoEl && fileIndex[names.video]) {
-            videoEl.src = `http://localhost:3000/api/file/${fileIndex[names.video]}`;
+            videoEl.src = `/api/file/${fileIndex[names.video]}`;
             videoEl.load();
         }
 
@@ -222,7 +222,7 @@ fetch('http://localhost:3000/api/media')
         const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
         console.log(room, '-> looking for:', names.image, '-> found:', imgId);
         if (imgEl && imgId) {
-            imgEl.src = `http://localhost:3000/api/file/${imgId}`;
+            imgEl.src = `/api/file/${imgId}`;
         }
     });
     })
