@@ -155,48 +155,48 @@ function skip(seconds) {
 // google drive API
 const roomFileMap = {
     'superior-twin':{
-        video:'superior_twin.mp4',
-        image:'superior_twin.jpeg'
+        video: 'superior_twin.mp4',
+        image: ['superior_twin.jpg', 'superior_twin.jpeg']
     },
     'superior-double':{
-        video:'superior_double.mp4',
-        image:'superior_double.jpg'
+        video: 'superior_double.mp4',
+        image: ['superior_double.jpg', 'superior_double.jpeg']
     },
     'deluxe-room':{
-        video:'deluxe_room.mp4',
-        image:'deluxe.jpg'
+        video: 'deluxe_room.mp4',
+        image: ['deluxe_room.jpg', 'deluxe_room.jpeg']
     },
     'meet-space-a':{
-        video:'meet_space_a.mp4',
-        image:'spaceA.jpeg'
+        video: 'meet_space_a.mp4',
+        image: ['meet_space_a.jpg', 'meet_space_a.jpeg']
     },
     'meet-space-b':{
-        video:'meet_space_b.mp4',
-        image:'spaceB.jpeg'
+        video: 'meet_space_b.mp4',
+        image: ['meet_space_b.jpg', 'meet_space_b.jpeg']
     },
     'meet-space-c':{ 
-        video:'meet_space_c.mp4',
-        image:'spaceC.jpg'
+        video: 'meet_space_c.mp4',
+        image: ['meet_space_c.jpg', 'meet_space_c.jpeg']
     },
     'soul-kitchen':{ 
-        video:'soul_kitchen.mp4',
-        image:'soul.jpeg'
+        video: 'soul_kitchen.mp4',
+        image: ['soul_kitchen.jpg', 'soul_kitchen.jpeg']
     },
     'gym':{
-        video:'gym.mp4',
-        image:'gym.jpg'
+        video: 'gym.mp4',
+        image: ['gym.jpg', 'gym.jpeg']
     },
     'in-room-spa':{
-        video:'spa.mp4',
-        image:'spa.jpg'
+        video: 'spa.mp4',
+        image: ['spa.jpg', 'spa.jpeg']
     },
     'laundromat':{
-        video:'laundromat.mp4',
-        image:'laundromat.jpeg'
+        video: 'laundromat.mp4',
+        image: ['laundromat.jpg', 'laundromat.jpeg']
     },
     'musholla':{
-        video:'musholla.mp4',
-        image:'musholla.jpeg'
+        video: 'musholla.mp4',
+        image: ['musholla.jpg', 'musholla.jpeg']
     },
 };
 
@@ -219,8 +219,10 @@ fetch('http://localhost:3000/api/media')
         }
 
         const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
-        if (imgEl && fileIndex[names.image]) {
-            imgEl.src = `http://localhost:3000/api/file/${fileIndex[names.image]}`;
+        const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
+        console.log(room, '-> looking for:', names.image, '-> found:', imgId);
+        if (imgEl && imgId) {
+            imgEl.src = `http://localhost:3000/api/file/${imgId}`;
         }
     });
     })
