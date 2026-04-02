@@ -151,3 +151,79 @@ function skip(seconds) {
     if (!video) return;
     video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
 }
+
+// google drive API
+const roomFileMap = {
+    'superior-twin':{
+        video: 'superior_twin.mp4',
+        image: ['superior_twin.jpg', 'superior_twin.jpeg']
+    },
+    'superior-double':{
+        video: 'superior_double.mp4',
+        image: ['superior_double.jpg', 'superior_double.jpeg']
+    },
+    'deluxe-room':{
+        video: 'deluxe_room.mp4',
+        image: ['deluxe_room.jpg', 'deluxe_room.jpeg']
+    },
+    'meet-space-a':{
+        video: 'meet_space_a.mp4',
+        image: ['meet_space_a.jpg', 'meet_space_a.jpeg']
+    },
+    'meet-space-b':{
+        video: 'meet_space_b.mp4',
+        image: ['meet_space_b.jpg', 'meet_space_b.jpeg']
+    },
+    'meet-space-c':{ 
+        video: 'meet_space_c.mp4',
+        image: ['meet_space_c.jpg', 'meet_space_c.jpeg']
+    },
+    'soul-kitchen':{ 
+        video: 'soul_kitchen.mp4',
+        image: ['soul_kitchen.jpg', 'soul_kitchen.jpeg']
+    },
+    'gym':{
+        video: 'gym.mp4',
+        image: ['gym.jpg', 'gym.jpeg']
+    },
+    'in-room-spa':{
+        video: 'spa.mp4',
+        image: ['spa.jpg', 'spa.jpeg']
+    },
+    'laundromat':{
+        video: 'laundromat.mp4',
+        image: ['laundromat.jpg', 'laundromat.jpeg']
+    },
+    'musholla':{
+        video: 'musholla.mp4',
+        image: ['musholla.jpg', 'musholla.jpeg']
+    },
+};
+
+fetch('http://10.5.51.210:3000/api/media')
+    .then(r => r.json())
+    .then(files => {
+    const fileIndex = {};
+    files.forEach(f => {
+        fileIndex[f.name] = f.id;
+    });
+
+    console.log('fileIndex:', fileIndex);
+    console.log('video els:', document.querySelectorAll('.room video'));
+
+    Object.entries(roomFileMap).forEach(([room, names]) => {
+        const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
+        if (videoEl && fileIndex[names.video]) {
+            videoEl.src = `/api/file/${fileIndex[names.video]}`;
+            videoEl.load();
+        }
+
+        const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
+        const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
+        console.log(room, '-> looking for:', names.image, '-> found:', imgId);
+        if (imgEl && imgId) {
+            imgEl.src = `/api/file/${imgId}`;
+        }
+    });
+    })
+    .catch(err => console.error('Drive fetch failed:', err));
