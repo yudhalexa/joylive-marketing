@@ -1,8 +1,7 @@
-.joylive.drawio
+joylive.drawio
+
 .env
 credentials.json
-node_modules
-
-joylive.drawio
+cms/node_modules
 
 marketing site
