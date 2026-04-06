@@ -211,18 +211,35 @@ fetch('http://10.5.51.210:3000/api/media')
     console.log('fileIndex:', fileIndex);
     console.log('video els:', document.querySelectorAll('.room video'));
 
+    // Object.entries(roomFileMap).forEach(([room, names]) => {
+    //     const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
+    //     if (videoEl && fileIndex[names.video]) {
+    //         videoEl.src = `/api/file/${fileIndex[names.video]}`;
+    //         videoEl.load();
+    //     }
+
+    //     const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
+    //     const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
+    //     console.log(room, '-> looking for:', names.image, '-> found:', imgId);
+    //     if (imgEl && imgId) {
+    //         imgEl.src = `/api/file/${imgId}`;
+    //     }
+    // });
     Object.entries(roomFileMap).forEach(([room, names]) => {
         const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
         if (videoEl && fileIndex[names.video]) {
-            videoEl.src = `/api/file/${fileIndex[names.video]}`;
+            const videoUrl = `/api/file/${fileIndex[names.video]}`;
+            console.log(`[${room}] loading video:`, videoUrl);
+            videoEl.src = videoUrl;
             videoEl.load();
         }
 
         const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
         const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
-        console.log(room, '-> looking for:', names.image, '-> found:', imgId);
         if (imgEl && imgId) {
-            imgEl.src = `/api/file/${imgId}`;
+            const imgUrl = `/api/file/${imgId}`;
+            console.log(`[${room}] loading image:`, imgUrl);
+            imgEl.src = imgUrl;
         }
     });
     })
