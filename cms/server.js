@@ -68,20 +68,26 @@ app.get('/api/media', async (req, res) => {
   }
 });
 
+const cache = new Map();
+
 app.get('/api/file/:id', async (req, res) => {
   try {
+    const { id } = req.params;
+
     const meta = await drive.files.get(
-      { fileId: req.params.id, fields: 'mimeType' }
+      { fileId: id, fields: 'mimeType' }
     );
+
+    res.setHeader('Content-Type', meta.data.mimeType);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
     
     const file = await drive.files.get(
-      { fileId: req.params.id, alt: 'media' },
+      { fileId: id, alt: 'media' },
       { responseType: 'stream' }
     );
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-    res.setHeader('Content-Type', meta.data.mimeType);
     file.data.pipe(res);
   } catch (err) {
     res.status(500).json({ error: err.message });
