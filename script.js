@@ -75,7 +75,8 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             const floatingJingle = document.querySelector('.floating-jingle');
             if (floatingJingle) floatingJingle.classList.add('visible');
 
-            if (jingleMp3.paused) {
+            const unmute = document.getElementById('unmute');
+            if (jingleMp3.paused && unmute.style.display !== 'none') {
                 jingleMp3.play();
             }
 
@@ -149,6 +150,7 @@ document.querySelectorAll('.room').forEach(room => {
 function skip(seconds) {
     const video = document.querySelector('.front-view .room.active video');
     if (!video) return;
+    if (!isFinite(video.duration)) return;
     video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
 }
 

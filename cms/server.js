@@ -74,21 +74,63 @@ app.get('/api/file/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
-    const meta = await drive.files.get(
-      { fileId: id, fields: 'mimeType' }
-    );
+    const authClient = await auth.getClient();
+    const tokenRes = await authClient.getAccessToken();
+    const accessToken = tokenRes.token;
 
-    res.setHeader('Content-Type', meta.data.mimeType);
+    if (!accessToken) {
+      console.error('No access token retrieved!');
+      return res.status(500).json({ error: 'Failed to get access token' });
+    }
+
+    console.log('Access token OK:', accessToken.slice(0, 20) + '...');
+
+    const meta = await drive.files.get({ fileId: id, fields: 'mimeType, size' });
+    const mimeType = meta.data.mimeType;
+    const fileSize = parseInt(meta.data.size);
+
+    const driveUrl = `https://www.googleapis.com/drive/v3/files/${id}?alt=media`;
+
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+    };
+
+    if (req.headers.range) {
+      headers['Range'] = req.headers.range;
+    }
+
+    const fetch = (await import('node-fetch')).default;
+    const driveRes = await fetch(driveUrl, { headers });
+
+    console.log('Drive response status:', driveRes.status);
+
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
     res.setHeader('Cache-Control', 'public, max-age=86400');
-    
-    const file = await drive.files.get(
-      { fileId: id, alt: 'media' },
-      { responseType: 'stream' }
-    );
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('Content-Type', mimeType);
 
-    file.data.pipe(res);
+    res.status(driveRes.status);
+    if (driveRes.headers.get('content-range')) {
+      res.setHeader('Content-Range', driveRes.headers.get('content-range'));
+    }
+    if (driveRes.headers.get('content-length')) {
+      res.setHeader('Content-Length', driveRes.headers.get('content-length'));
+    }
+
+    driveRes.body.pipe(res);
+
+  } catch (err) {
+    console.error('File endpoint error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/test-auth', async (req, res) => {
+  try {
+    const authClient = await auth.getClient();
+    const tokenRes = await authClient.getAccessToken();
+    res.json({ token: tokenRes.token?.slice(0, 30) + '...', ok: !!tokenRes.token });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
