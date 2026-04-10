@@ -242,6 +242,12 @@ fetch('http://10.5.51.210:3000/api/media')
             const imgUrl = `/api/file/${imgId}`;
             console.log(`[${room}] loading image:`, imgUrl);
             imgEl.src = imgUrl;
+            imgEl.onerror = function() {
+                this.onerror = null;
+                this.src = '/marketing-assets/fallback-img.jpg';
+            };
+        } else if (imgEl) {
+            imgEl.src = '/marketing-assets/fallback-img.jpg';
         }
     });
     })

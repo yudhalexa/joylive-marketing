@@ -9,6 +9,9 @@ app.use(cors({
   exposedHeaders: ['Content-Type', 'Content-Length']
 }));
 
+const path = require('path');
+app.use('/marketing-assets', express.static(path.join(__dirname, '../marketing-assets')));
+
 const auth = new google.auth.GoogleAuth({
   keyFile: './credentials.json',
   scopes: ['https://www.googleapis.com/auth/drive.readonly'],
