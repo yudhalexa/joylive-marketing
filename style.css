@@ -45,6 +45,35 @@ img {
     width: auto !important;
 }
 
+.floating-jingle {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    z-index: 5;
+    padding: 25px;
+    right: 0px;
+    bottom: -90px;
+    transition: bottom 0.3s ease-out;
+    opacity: 50%;
+}
+
+.floating-jingle.visible {
+    bottom: 0px;
+}
+
+.floating-jingle button {
+    background-color: var(--joy-red);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border-color: transparent;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 25%);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 .video-icons {
     /* clip-path: inset(0px, 12px, 0px, 12px); */
     width: 100%;
@@ -298,31 +327,16 @@ progress::-moz-progress-bar {
     align-items: center;
 }
 
-.floating-jingle {
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    z-index: 5;
-    padding: 25px;
-    right: 0px;
-    bottom: -90px;
-    transition: bottom 0.3s ease-out;
-    opacity: 50%;
+.error-head {
+    color: var(--joy-teal);
+    text-transform: uppercase;
+    font-family: 'Inria Sans';
+    font-weight: bold;
+    font-size: 40px;
 }
 
-.floating-jingle.visible {
-    bottom: 0px;
-}
-
-.floating-jingle button {
-    background-color: var(--joy-red);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-    border-color: transparent;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 25%);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.error-text {
+    color: rgba(0, 0, 0, 75%);
+    font-family: 'Inter';
+    font-size: 18px;
 }
