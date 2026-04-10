@@ -340,3 +340,13 @@ progress::-moz-progress-bar {
     font-family: 'Inter';
     font-size: 18px;
 }
+
+.error-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+}
