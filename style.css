@@ -345,8 +345,8 @@ progress::-moz-progress-bar {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 10px;
     text-align: center;
     align-items: center;
+    gap: 50px;
+    padding: 100px 0px;
 }
