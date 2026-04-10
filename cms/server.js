@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { google } = require('googleapis');
+const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
 
 const app = express();
 app.use(cors({
@@ -99,7 +100,7 @@ app.get('/api/file/:id', async (req, res) => {
       headers['Range'] = req.headers.range;
     }
 
-    const fetch = (await import('node-fetch')).default;
+    // const fetch = (await import('node-fetch')).default;
     const driveRes = await fetch(driveUrl, { headers });
 
     console.log('Drive response status:', driveRes.status);

@@ -1,3 +1,5 @@
+<image style="height: 300px;" src="./marketing-assets/front.gif">
+
 # Project Details
 
 This is a project from my 4-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch.
@@ -7,6 +9,7 @@ This site uses:
 * Javascript
 * Apache server
 * Node JS server
+* Netlify
 
 ## Features
 The site offers a reel-like interface to display a digital showcase of facilities at Joylive BSD City, including:
