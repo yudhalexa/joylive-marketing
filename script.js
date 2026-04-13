@@ -216,15 +216,6 @@ fetch('http://10.5.51.210:3000/api/media')
     Object.entries(roomFileMap).forEach(([room, names]) => {
         const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
 
-        // if (videoEl) {
-        //     const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
-        //     if (imgId) {
-        //         videoEl.poster = `/api/file/${imgId}`;
-        //     } else {
-        //         videoEl.poster = fallback_poster;
-        //     }
-        // }
-
         if (videoEl && fileIndex[names.video]) {
             const videoUrl = `/api/file/${fileIndex[names.video]}`;
             console.log(`[${room}] loading video:`, videoUrl);
@@ -241,10 +232,10 @@ fetch('http://10.5.51.210:3000/api/media')
             imgEl.src = imgUrl;
             imgEl.onerror = function() {
                 this.onerror = null;
-                this.src = fallback_img;
+                this.src = "./marketing-assets/fallback-img.jpg";
             };
         } else if (imgEl) {
-            imgEl.src = fallback_img;
+            imgEl.src = "./marketing-assets/fallback-img.jpg";
         }
     });
     })
