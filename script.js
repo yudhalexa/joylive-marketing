@@ -202,7 +202,7 @@ const roomFileMap = {
     },
 };
 
-fetch('http://10.5.51.210:3000/api/media')
+fetch('/api/media')
     .then(r => r.json())
     .then(files => {
     const fileIndex = {};

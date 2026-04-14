@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { google } = require('googleapis');
 const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
+const path = require('path');
 
 const app = express();
 app.use(cors({
@@ -11,11 +12,10 @@ app.use(cors({
   // exposedHeaders: ['Content-Type', 'Content-Length']
 }));
 
-const path = require('path');
 app.use('/marketing-assets', express.static(path.join(__dirname, '../marketing-assets')));
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  keyFile: path.resolve(__dirname, 'credentials.json'),
   scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 });
 
@@ -48,7 +48,7 @@ const drive = google.drive({ version: 'v3', auth });
 
 app.get('/api/media', async (req, res) => {
   try {
-    const ROOT = process.env.DRIVE_ROOT_FOLDER_ID;
+    const ROOT = process.env.DRIVE_FOLDER_ID;
 
     const foldersRes = await drive.files.list({
       q: `'${ROOT}' in parents and mimeType = 'application/vnd.google-apps.folder' and trashed = false`,
