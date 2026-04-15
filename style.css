@@ -46,7 +46,6 @@ img {
 }
 
 .video-icons {
-    /* clip-path: inset(0px, 12px, 0px, 12px); */
     width: 100%;
     overflow-x: auto;
     box-sizing: border-box;
@@ -79,14 +78,6 @@ img {
     border-radius: 30px;
     flex-shrink: 0;
 }
-
-/* .video-icons:first-child {
-    margin-left: 12px;
-}
-
-.video-icons:last-child {
-    margin-right: 12px;
-} */
 
 .icon-text{
     width: 85px;
@@ -140,10 +131,6 @@ img {
     font-weight: bold;
     white-space: nowrap;
 }
-
-/* .front-text span {
-    
-} */
 
 .room-video {
     position: relative;
@@ -285,9 +272,9 @@ progress::-moz-progress-bar {
     gap: 20px;
 }
 
-/* .icon-social {
+.icon-social {
     cursor: pointer;
-} */
+}
 
 .icon-social {
     width: 40px;

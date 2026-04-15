@@ -1,5 +1,4 @@
 // floating jingle toggle
-
 let jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
 jingleMp3.loop = true;
 
@@ -79,15 +78,6 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             if (jingleMp3.paused && unmute.style.display !== 'none') {
                 jingleMp3.play();
             }
-
-            // setTimeout(() => {
-            //     const floatingJingle = document.querySelector('.floating-jingle');
-            //     if (floatingJingle) floatingJingle.classList.add('visible');
-                
-            //     if (jingleMp3.paused) {
-            //         jingleMp3.play();
-            //     }
-            // }, 3000);
     });
 });
 

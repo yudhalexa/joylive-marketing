@@ -7,7 +7,8 @@ module.exports = {
       NODE_ENV : "production",
       PORT : 3000,
       DRIVE_FOLDER_ID: "17skfr62D6b-PxUR__XBYf_Q-TfJUgefT",
-      // ALLOWED_ORIGIN: "" (wait for domain)
+      // TODO: uncomment below after getting the domain
+      // ALLOWED_ORIGIN: ""
     }
   }]
 }
