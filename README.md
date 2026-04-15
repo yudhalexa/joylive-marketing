@@ -23,8 +23,9 @@ The site offers a highlight reel-like interface to display a digital showcase of
 * Spa
 
 <p align="center">
-    <img style="height: 300px;" src="./docs/reel-scroll.gif">
-    <img style="height: 300px;" src="./docs/video-clicked.gif">
+  <img src="docs/reel-scroll.gif" height="300">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/video-clicked.gif" height="300">
 </p>
 
 Once a room icon is clicked, a video of its tour will play with custom controls, as well as the hotel's jingle on loop which can be turned off anytime through the floating icon on the bottom right.
