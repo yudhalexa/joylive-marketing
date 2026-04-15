@@ -22,11 +22,14 @@ The site offers a highlight reel-like interface to display a digital showcase of
 * Musholla
 * Spa
 
-<p align="center">
+<!-- <p align="center">
   <img src="docs/reel-scroll.gif" height="300">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="docs/video-clicked.gif" height="300">
-</p>
+</p> -->
+
+![Reel Scroll](docs/reel-scroll.gif)
+![Video Clicked](docs/video-clicked.gif)
 
 Once a room icon is clicked, a video of its tour will play with custom controls, as well as the hotel's jingle on loop which can be turned off anytime through the floating icon on the bottom right.
 
@@ -56,10 +59,6 @@ pm2 start ecosystem.config.js --env production
 pm2 save
 ```
 The server will now start automatically, but might take a while for the media to load.
-
-<!-- Below is the embedded Figma prototype and linked is the [Figma design file](https://www.figma.com/design/4JyjKDtydJk6yrQaXoldvu/Video-Marketing-Joylive---Mobile?node-id=362-3700&t=Z40ZjnDPbzmnhzwG-1").
-
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="auto" height="450" src="https://embed.figma.com/proto/4JyjKDtydJk6yrQaXoldvu/Video-Marketing-Joylive---Mobile?node-id=947-725&p=f&viewport=129%2C940%2C0.48&scaling=scale-down&content-scaling=fixed&starting-point-node-id=947%3A725&page-id=362%3A3700&embed-host=share" allowfullscreen></iframe> -->
 
 ## License
 MIT
