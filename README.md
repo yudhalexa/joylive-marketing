@@ -22,14 +22,11 @@ The site offers a highlight reel-like interface to display a digital showcase of
 * Musholla
 * Spa
 
-<!-- <p align="center">
+<p align="center">
   <img src="docs/reel-scroll.gif" height="300">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="docs/video-clicked.gif" height="300">
-</p> -->
-
-![Reel Scroll](docs/reel-scroll.gif)
-![Video Clicked](docs/video-clicked.gif)
+</p>
 
 Once a room icon is clicked, a video of its tour will play with custom controls, as well as the hotel's jingle on loop which can be turned off anytime through the floating icon on the bottom right.
 
