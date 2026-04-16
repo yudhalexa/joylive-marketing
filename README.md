@@ -1,6 +1,5 @@
 # Project Details
-
-This is a project from my 4-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch.
+This is a project from my 5-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch.
 
 This site uses:
 * Plain HTML/CSS frontend
@@ -10,7 +9,7 @@ This site uses:
 
 ## Features
 <p align="center">
-    <img style="height: 300px;" src="./docs/screenshot.jpeg">
+    <img style="height: 300px; box-shadow: 0 0 8px;" src="./docs/screenshot.jpeg">
 </p>
 
 The site offers a highlight reel-like interface to display a digital showcase of rooms and facilities at [Joylive BSD City](https://www.google.com/maps/place/Joylive+BSD+City/@-6.302943,106.638214,17z/data=!4m9!3m8!1s0x2e69fb736dab5b15:0x62b024ef8f72d35f!5m2!4m1!1i2!8m2!3d-6.3029434!4d106.6382135!16s%2Fg%2F11rws99_jb?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D), which are listed below.
@@ -23,9 +22,9 @@ The site offers a highlight reel-like interface to display a digital showcase of
 * Spa
 
 <p align="center">
-  <img src="docs/reel-scroll.gif" height="300">
+  <img src="docs/reel-scroll.gif" height="300" style="box-shadow: 0 0 8px;">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/video-clicked.gif" height="300">
+  <img src="docs/video-clicked.gif" height="300" style="box-shadow: 0 0 8px;">
 </p>
 
 Once a room icon is clicked, a video of its tour will play with custom controls, as well as the hotel's jingle on loop which can be turned off anytime through the floating icon on the bottom right.
