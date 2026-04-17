@@ -2,48 +2,28 @@ const express = require('express');
 const cors = require('cors');
 const { google } = require('googleapis');
 const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
+const path = require('path');
 
 const app = express();
 app.use(cors({
+  // TODO: uncomment below after getting actual domain
+  // origin: process.env.ALLOWED_ORIGIN, 
   origin: '*',
-  exposedHeaders: ['Content-Type', 'Content-Length']
+  // exposedHeaders: ['Content-Type', 'Content-Length']
 }));
 
+app.use('/marketing-assets', express.static(path.join(__dirname, '../marketing-assets')));
+
 const auth = new google.auth.GoogleAuth({
-  keyFile: './credentials.json',
+  keyFile: path.resolve(__dirname, 'credentials.json'),
   scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 });
 
 const drive = google.drive({ version: 'v3', auth });
 
-// app.get('/api/media', async (req, res) => {
-//   try {
-//     const foldersRes = await drive.files.list({
-//       q: `'17skfr62D6b-PxUR__XBYf_Q-TfJUgefT' in parents and mimeType = 'application/vnd.google-apps.folder' and trashed = false`,
-//       fields: 'files(id, name)',
-//     });
-
-//     const folders = foldersRes.data.files;
-
-//     const filePromises = folders.map(folder =>
-//       drive.files.list({
-//         q: `'${folder.id}' in parents and trashed = false`,
-//         fields: 'files(id, name, mimeType)',
-//       })
-//     );
-
-//     const results = await Promise.all(filePromises);
-//     const allFiles = results.flatMap(r => r.data.files);
-
-//     res.json(allFiles);
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// });
-
 app.get('/api/media', async (req, res) => {
   try {
-    const ROOT = '17skfr62D6b-PxUR__XBYf_Q-TfJUgefT';
+    const ROOT = process.env.DRIVE_FOLDER_ID;
 
     const foldersRes = await drive.files.list({
       q: `'${ROOT}' in parents and mimeType = 'application/vnd.google-apps.folder' and trashed = false`,
@@ -68,8 +48,6 @@ app.get('/api/media', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-const cache = new Map();
 
 app.get('/api/file/:id', async (req, res) => {
   try {
@@ -100,7 +78,6 @@ app.get('/api/file/:id', async (req, res) => {
       headers['Range'] = req.headers.range;
     }
 
-    // const fetch = (await import('node-fetch')).default;
     const driveRes = await fetch(driveUrl, { headers });
 
     console.log('Drive response status:', driveRes.status);
@@ -127,6 +104,7 @@ app.get('/api/file/:id', async (req, res) => {
   }
 });
 
+// TODO: remove below after development
 app.get('/api/test-auth', async (req, res) => {
   try {
     const authClient = await auth.getClient();

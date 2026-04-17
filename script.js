@@ -1,5 +1,4 @@
 // floating jingle toggle
-
 let jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
 jingleMp3.loop = true;
 
@@ -79,15 +78,6 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             if (jingleMp3.paused && unmute.style.display !== 'none') {
                 jingleMp3.play();
             }
-
-            // setTimeout(() => {
-            //     const floatingJingle = document.querySelector('.floating-jingle');
-            //     if (floatingJingle) floatingJingle.classList.add('visible');
-                
-            //     if (jingleMp3.paused) {
-            //         jingleMp3.play();
-            //     }
-            // }, 3000);
     });
 });
 
@@ -202,7 +192,7 @@ const roomFileMap = {
     },
 };
 
-fetch('http://10.5.51.210:3000/api/media')
+fetch('/api/media')
     .then(r => r.json())
     .then(files => {
     const fileIndex = {};
@@ -213,22 +203,9 @@ fetch('http://10.5.51.210:3000/api/media')
     console.log('fileIndex:', fileIndex);
     console.log('video els:', document.querySelectorAll('.room video'));
 
-    // Object.entries(roomFileMap).forEach(([room, names]) => {
-    //     const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
-    //     if (videoEl && fileIndex[names.video]) {
-    //         videoEl.src = `/api/file/${fileIndex[names.video]}`;
-    //         videoEl.load();
-    //     }
-
-    //     const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
-    //     const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
-    //     console.log(room, '-> looking for:', names.image, '-> found:', imgId);
-    //     if (imgEl && imgId) {
-    //         imgEl.src = `/api/file/${imgId}`;
-    //     }
-    // });
     Object.entries(roomFileMap).forEach(([room, names]) => {
         const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
+
         if (videoEl && fileIndex[names.video]) {
             const videoUrl = `/api/file/${fileIndex[names.video]}`;
             console.log(`[${room}] loading video:`, videoUrl);
@@ -238,10 +215,17 @@ fetch('http://10.5.51.210:3000/api/media')
 
         const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
         const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
+
         if (imgEl && imgId) {
             const imgUrl = `/api/file/${imgId}`;
             console.log(`[${room}] loading image:`, imgUrl);
             imgEl.src = imgUrl;
+            imgEl.onerror = function() {
+                this.onerror = null;
+                this.src = "./marketing-assets/fallback-img.jpg";
+            };
+        } else if (imgEl) {
+            imgEl.src = "./marketing-assets/fallback-img.jpg";
         }
     });
     })

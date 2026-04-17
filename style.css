@@ -75,7 +75,6 @@ img {
 }
 
 .video-icons {
-    /* clip-path: inset(0px, 12px, 0px, 12px); */
     width: 100%;
     overflow-x: auto;
     box-sizing: border-box;
@@ -108,14 +107,6 @@ img {
     border-radius: 30px;
     flex-shrink: 0;
 }
-
-/* .video-icons:first-child {
-    margin-left: 12px;
-}
-
-.video-icons:last-child {
-    margin-right: 12px;
-} */
 
 .icon-text{
     width: 85px;
@@ -170,10 +161,6 @@ img {
     white-space: nowrap;
 }
 
-/* .front-text span {
-    
-} */
-
 .room-video {
     position: relative;
     width: 100%;
@@ -209,13 +196,15 @@ progress {
     height: 3px;
     appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
     border: none;
     border-radius: 2px;
     overflow: hidden;
+    background-color: rgba(255, 255, 255, 50%) !important;
 }
 
 progress::-webkit-progress-bar {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 50%);
     border-radius: 2px;
 }
 
@@ -225,8 +214,7 @@ progress::-webkit-progress-value {
 }
 
 progress::-moz-progress-bar {
-    background-color: white;
-    border-radius: 2px;
+    background-color: white !important;
 }
 
 .room {
@@ -314,9 +302,9 @@ progress::-moz-progress-bar {
     gap: 20px;
 }
 
-/* .icon-social {
+.icon-social {
     cursor: pointer;
-} */
+}
 
 .icon-social {
     width: 40px;
