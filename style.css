@@ -87,6 +87,9 @@ img {
 }
 
 .body-footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -315,20 +318,23 @@ progress::-moz-progress-bar {
     cursor: pointer;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1300px) {
     .video-icons {
         display: flex;
         justify-content: center;
     }
 
     .front {
-        height: auto;
-        width: 1080px;
+        width: max-content;
+        /* height: max-content; */
     }
 
     .front-view {
-        display: flex;
-        justify-content: center;
+        width: auto;
+        aspect-ratio: 2 / 3;
+        overflow: hidden;
+        height: 1080px;
+        justify-items: center;
         background-color: var(--joy-purple);
     }
 }
