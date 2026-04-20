@@ -241,6 +241,7 @@ progress::-moz-progress-bar {
 }
 
 .room-text {
+    background-color: white;
     color: rgba(0, 0, 0, 75%);
     height: 70px;
     display: flex;
@@ -249,7 +250,6 @@ progress::-moz-progress-bar {
     font-family: 'Inria Sans';
     font-size: 16px;
     font-weight: bold;
-    font-family: 'Inria Sans';
     text-transform: uppercase;
 }
 
@@ -327,14 +327,28 @@ progress::-moz-progress-bar {
     .front {
         width: max-content;
         /* height: max-content; */
+        aspect-ratio: 2 / 3;
     }
 
     .front-view {
         width: auto;
-        aspect-ratio: 2 / 3;
         overflow: hidden;
-        height: 1080px;
-        justify-items: center;
+        height: 540px;
+        display: flex;
+        justify-content: center;
         background-color: var(--joy-purple);
+    }
+
+    .room {
+        width: auto;
+        overflow: hidden;
+        height: 540px;
+        display: flex;
+        justify-content: center;
+        background-color: var(--joy-purple);
+    }
+
+    .room-video {
+        height: 470px;
     }
 }
