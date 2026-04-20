@@ -1,6 +1,5 @@
 // floating jingle toggle
-
-jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
+let jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
 jingleMp3.loop = true;
 
 function jingle() {
@@ -75,18 +74,10 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             const floatingJingle = document.querySelector('.floating-jingle');
             if (floatingJingle) floatingJingle.classList.add('visible');
 
-            if (jingleMp3.paused) {
+            const unmute = document.getElementById('unmute');
+            if (jingleMp3.paused && unmute.style.display !== 'none') {
                 jingleMp3.play();
             }
-
-            // setTimeout(() => {
-            //     const floatingJingle = document.querySelector('.floating-jingle');
-            //     if (floatingJingle) floatingJingle.classList.add('visible');
-                
-            //     if (jingleMp3.paused) {
-            //         jingleMp3.play();
-            //     }
-            // }, 3000);
     });
 });
 
@@ -149,5 +140,93 @@ document.querySelectorAll('.room').forEach(room => {
 function skip(seconds) {
     const video = document.querySelector('.front-view .room.active video');
     if (!video) return;
+    if (!isFinite(video.duration)) return;
     video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
 }
+
+// google drive API
+const roomFileMap = {
+    'superior-twin':{
+        video: 'superior_twin.mp4',
+        image: ['superior_twin.jpg', 'superior_twin.jpeg']
+    },
+    'superior-double':{
+        video: 'superior_double.mp4',
+        image: ['superior_double.jpg', 'superior_double.jpeg']
+    },
+    'deluxe-room':{
+        video: 'deluxe_room.mp4',
+        image: ['deluxe_room.jpg', 'deluxe_room.jpeg']
+    },
+    'meet-space-a':{
+        video: 'meet_space_a.mp4',
+        image: ['meet_space_a.jpg', 'meet_space_a.jpeg']
+    },
+    'meet-space-b':{
+        video: 'meet_space_b.mp4',
+        image: ['meet_space_b.jpg', 'meet_space_b.jpeg']
+    },
+    'meet-space-c':{ 
+        video: 'meet_space_c.mp4',
+        image: ['meet_space_c.jpg', 'meet_space_c.jpeg']
+    },
+    'soul-kitchen':{ 
+        video: 'soul_kitchen.mp4',
+        image: ['soul_kitchen.jpg', 'soul_kitchen.jpeg']
+    },
+    'gym':{
+        video: 'gym.mp4',
+        image: ['gym.jpg', 'gym.jpeg']
+    },
+    'in-room-spa':{
+        video: 'spa.mp4',
+        image: ['spa.jpg', 'spa.jpeg']
+    },
+    'laundromat':{
+        video: 'laundromat.mp4',
+        image: ['laundromat.jpg', 'laundromat.jpeg']
+    },
+    'musholla':{
+        video: 'musholla.mp4',
+        image: ['musholla.jpg', 'musholla.jpeg']
+    },
+};
+
+fetch('/api/media')
+    .then(r => r.json())
+    .then(files => {
+    const fileIndex = {};
+    files.forEach(f => {
+        fileIndex[f.name] = f.id;
+    });
+
+    console.log('fileIndex:', fileIndex);
+    console.log('video els:', document.querySelectorAll('.room video'));
+
+    Object.entries(roomFileMap).forEach(([room, names]) => {
+        const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
+
+        if (videoEl && fileIndex[names.video]) {
+            const videoUrl = `/api/file/${fileIndex[names.video]}`;
+            console.log(`[${room}] loading video:`, videoUrl);
+            videoEl.src = videoUrl;
+            videoEl.load();
+        }
+
+        const imgEl = document.querySelector(`.icon-room[data-room="${room}"] img`);
+        const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
+
+        if (imgEl && imgId) {
+            const imgUrl = `/api/file/${imgId}`;
+            console.log(`[${room}] loading image:`, imgUrl);
+            imgEl.src = imgUrl;
+            imgEl.onerror = function() {
+                this.onerror = null;
+                this.src = "./marketing-assets/fallback-img.jpg";
+            };
+        } else if (imgEl) {
+            imgEl.src = "./marketing-assets/fallback-img.jpg";
+        }
+    });
+    })
+    .catch(err => console.error('Drive fetch failed:', err));
