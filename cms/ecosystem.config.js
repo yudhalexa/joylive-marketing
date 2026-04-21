@@ -7,8 +7,7 @@ module.exports = {
       NODE_ENV : "production",
       PORT : 3000,
       DRIVE_FOLDER_ID: "17skfr62D6b-PxUR__XBYf_Q-TfJUgefT",
-      // TODO: uncomment below after getting the domain
-      // ALLOWED_ORIGIN: ""
+      ALLOWED_ORIGIN: "https://tour.joylive.id"
     }
   }]
 }
