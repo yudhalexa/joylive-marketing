@@ -318,10 +318,15 @@ progress::-moz-progress-bar {
     cursor: pointer;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 720px) {
     .video-icons {
-        display: flex;
-        justify-content: center;
+        text-align: center;
+        overflow-x: auto;
+    }
+
+    .icon-row {
+        width: max-content;
+        display: inline-flex;
     }
 
     .front {

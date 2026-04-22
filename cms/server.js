@@ -6,8 +6,7 @@ const path = require('path');
 
 const app = express();
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGIN, 
-  origin: '*',
+  origin: process.env.ALLOWED_ORIGIN,
   exposedHeaders: ['Content-Type', 'Content-Length']
 }));
 
@@ -81,7 +80,7 @@ app.get('/api/file/:id', async (req, res) => {
 
     console.log('Drive response status:', driveRes.status);
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN);
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
     res.setHeader('Cache-Control', 'public, max-age=86400');
     res.setHeader('Accept-Ranges', 'bytes');
@@ -102,16 +101,3 @@ app.get('/api/file/:id', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-// TODO: remove below after development
-// app.get('/api/test-auth', async (req, res) => {
-//   try {
-//     const authClient = await auth.getClient();
-//     const tokenRes = await authClient.getAccessToken();
-//     res.json({ token: tokenRes.token?.slice(0, 30) + '...', ok: !!tokenRes.token });
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// });
-
-// app.listen(3000, '0.0.0.0', () => console.log('Server running on port 3000'));
