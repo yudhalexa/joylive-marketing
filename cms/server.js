@@ -6,10 +6,9 @@ const path = require('path');
 
 const app = express();
 app.use(cors({
-  // TODO: uncomment below after getting actual domain
-  // origin: process.env.ALLOWED_ORIGIN, 
+  origin: process.env.ALLOWED_ORIGIN, 
   origin: '*',
-  // exposedHeaders: ['Content-Type', 'Content-Length']
+  exposedHeaders: ['Content-Type', 'Content-Length']
 }));
 
 app.use('/marketing-assets', express.static(path.join(__dirname, '../marketing-assets')));
@@ -105,14 +104,14 @@ app.get('/api/file/:id', async (req, res) => {
 });
 
 // TODO: remove below after development
-app.get('/api/test-auth', async (req, res) => {
-  try {
-    const authClient = await auth.getClient();
-    const tokenRes = await authClient.getAccessToken();
-    res.json({ token: tokenRes.token?.slice(0, 30) + '...', ok: !!tokenRes.token });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+// app.get('/api/test-auth', async (req, res) => {
+//   try {
+//     const authClient = await auth.getClient();
+//     const tokenRes = await authClient.getAccessToken();
+//     res.json({ token: tokenRes.token?.slice(0, 30) + '...', ok: !!tokenRes.token });
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// });
 
-app.listen(3000, '0.0.0.0', () => console.log('Server running on port 3000'));
+// app.listen(3000, '0.0.0.0', () => console.log('Server running on port 3000'));
