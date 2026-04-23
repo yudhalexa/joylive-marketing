@@ -1,2 +1,5 @@
-DirectoryIndex index.html index.php
+DirectoryIndex index.html
 Options -Indexes
+
+RewriteEngine On
+RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L]
