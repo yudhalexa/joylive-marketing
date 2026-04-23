@@ -1,7 +1,7 @@
 DirectoryIndex index.html
 Options -Indexes
 
-PassengerEnabled on
-PassengerAppRoot /home/joya2752/repositories/joylive-marketing/cms
-PassengerAppType node
-PassengerStartupFile server.js
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/(.*)$ http://tour.joylive.id/api/$1 [P,L]
