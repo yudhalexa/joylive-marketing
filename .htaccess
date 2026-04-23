@@ -1,5 +1,7 @@
 DirectoryIndex index.html
 Options -Indexes
 
-RewriteEngine On
-RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L]
+PassengerEnabled on
+PassengerAppRoot /home/joya2752/repositories/joylive-marketing/cms
+PassengerAppType node
+PassengerStartupFile server.js
