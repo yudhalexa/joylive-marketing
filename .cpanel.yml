@@ -1,5 +1,5 @@
 ---
 deployment:
-  tasks:
-    - export DEPLOYPATH=/home/joya2752/public_html/joylive_marketing
-    - /bin/cp -a * $DEPLOYPATH
+    tasks:
+        - export DEPLOYPATH=/home/joya2752/public_html/joylive_marketing
+        - /bin/cp -a * $DEPLOYPATH
