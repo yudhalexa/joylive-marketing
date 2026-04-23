@@ -1,5 +1,10 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/joya2752/public_html/joylive-marketing
-    - /bin/cp -r /home/joya2752/repositories/joylive-marketing/* $DEPLOYPATH
+    - export FRONTENDPATH=/home/joya2752/public_html/joylive-marketing
+    - /bin/cp -r /home/joya2752/repositories/joylive-marketing/* $FRONTENDPATH
+
+    - export BACKENDPATH=/home/joya2752/repositories/joylive-marketing/cms
+    - /bin/rm -rf $BACKENDPATH/node_modules
+    - /usr/local/bin/npm install --prefix $BACKENDPATH
+    - /usr/local/cpanel/bin/restartapp $BACKENDPATH
