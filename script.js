@@ -192,7 +192,7 @@ const roomFileMap = {
     },
 };
 
-fetch('/api/media')
+fetch('/cms/api/media')
     .then(r => r.json())
     .then(files => {
     const fileIndex = {};
