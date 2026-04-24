@@ -1,5 +1,6 @@
 .env
 credentials.json
-node_modules/
+.htaccess
 
+node_modules/
 cms/tmp/
