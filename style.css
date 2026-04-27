@@ -141,6 +141,7 @@ img {
     aspect-ratio: 2 / 3;
     overflow: hidden;
     max-height: 100vh;
+    -webkit-overflow-scrolling: touch;
 }
 
 .video-controls {
@@ -194,6 +195,7 @@ progress::-moz-progress-bar {
 
 .room {
     aspect-ratio: 2 / 3;
+    overflow: hidden;
 }
 
 .room video {
