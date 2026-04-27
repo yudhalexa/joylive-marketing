@@ -192,6 +192,12 @@ const roomFileMap = {
     },
 };
 
+const API_BASE = (window.location.hostname === 'joylive.test' || window.location.hostname === 'localhost') 
+  ? 'http://localhost:3000' 
+  : '';
+
+fetch(`${API_BASE}/api/media`)
+
 fetch('/api/media')
     .then(r => r.json())
     .then(files => {
@@ -207,7 +213,7 @@ fetch('/api/media')
         const videoEl = document.querySelector(`.room[data-room="${room}"] video`);
 
         if (videoEl && fileIndex[names.video]) {
-            const videoUrl = `/api/file/${fileIndex[names.video]}`;
+            const videoUrl = `${API_BASE}/api/file/${fileIndex[names.video]}`;
             console.log(`[${room}] loading video:`, videoUrl);
             videoEl.src = videoUrl;
             videoEl.load();
@@ -217,7 +223,7 @@ fetch('/api/media')
         const imgId = names.image.reduce((found, name) => found || fileIndex[name], null);
 
         if (imgEl && imgId) {
-            const imgUrl = `/api/file/${imgId}`;
+            const imgUrl = `${API_BASE}/api/file/${imgId}`;
             console.log(`[${room}] loading image:`, imgUrl);
             imgEl.src = imgUrl;
             imgEl.onerror = function() {
