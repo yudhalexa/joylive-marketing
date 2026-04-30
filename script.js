@@ -38,7 +38,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
         });
 
         const frontDiv = document.querySelector('.front');
-        const allRooms = document.querySelectorAll('.front-view .room');
+        const allRooms = document.querySelectorAll('.front-view .room-wrapper');
 
         if (clicked) {
             frontDiv.style.display = 'block';
@@ -83,7 +83,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
 
 // video controls
 function playPause() {
-    const activeRoom = document.querySelector('.front-view .room.active');
+    const activeRoom = document.querySelector('.front-view .room-wrapper .room.active');
     const video = activeRoom?.querySelector('video');
     const playIcon = activeRoom?.querySelector('.icon-play');
     const pauseIcon = activeRoom?.querySelector('.icon-pause');
@@ -102,7 +102,7 @@ function playPause() {
 }
 
 function fullscreen() {
-    const activeRoom = document.querySelector('.front-view .room.active');
+    const activeRoom = document.querySelector('.front-view .room-wrapper .room.active');
     const roomVideo = activeRoom?.querySelector('.room-video');
     const maxIcon = activeRoom?.querySelector('.icon-maximize');
     const minIcon = activeRoom?.querySelector('.icon-minimize');
@@ -138,7 +138,7 @@ document.querySelectorAll('.room').forEach(room => {
 });
 
 function skip(seconds) {
-    const video = document.querySelector('.front-view .room.active video');
+    const video = document.querySelector('.front-view .room-wrapper .room.active video');
     if (!video) return;
     if (!isFinite(video.duration)) return;
     video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));

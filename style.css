@@ -169,13 +169,15 @@ img {
 }
 
 .room-video {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    /* aspect-ratio: 2 / 3; */
+    height: 100%;
     overflow: hidden;
-    max-height: 100vh;
+    /* max-height: 100vh;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 150%;
+    padding-bottom: 150%; */
 }
 
 .video-controls {
@@ -227,8 +229,16 @@ progress::-moz-progress-bar {
     background-color: white !important;
 }
 
+.room-wrapper {
+    width: 100%;
+}
+
 .room {
+    position: relative;
+    width: 100%;
+    padding-bottom: 150%;
     overflow: hidden;
+    height: 0;
 }
 
 .room video {
