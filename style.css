@@ -171,10 +171,11 @@ img {
 .room-video {
     position: relative;
     width: 100%;
-    aspect-ratio: 2 / 3;
+    /* aspect-ratio: 2 / 3; */
     overflow: hidden;
     max-height: 100vh;
     -webkit-overflow-scrolling: touch;
+    padding-bottom: 150%;
 }
 
 .video-controls {
@@ -234,8 +235,11 @@ progress::-moz-progress-bar {
     width: 100%; 
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 2 / 3;
-    max-height: 100%;
+    /* aspect-ratio: 2 / 3;
+    max-height: 100%; */
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 
 .room-video:fullscreen video,
