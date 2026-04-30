@@ -228,7 +228,6 @@ progress::-moz-progress-bar {
 
 .room {
     aspect-ratio: 2 / 3;
-    overflow: hidden;
 }
 
 .room video {
