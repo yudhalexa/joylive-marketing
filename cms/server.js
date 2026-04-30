@@ -12,6 +12,7 @@ app.use(cors({
   exposedHeaders: ['Content-Type', 'Content-Length']
 }));
 
+app.use(express.static(path.join(__dirname, '../')));
 app.use('/marketing-assets', express.static(path.join(__dirname, '../marketing-assets')));
 
 const auth = new google.auth.GoogleAuth({
@@ -102,6 +103,12 @@ app.get('/api/file/:id', async (req, res) => {
     console.error('File endpoint error:', err);
     res.status(500).json({ error: err.message });
   }
+});
+
+app.use((req, res) => {
+  res.status(404).sendFile('404.html', {
+    root: path.join(__dirname, '../')
+  });
 });
 
 const PORT = process.env.PORT || 3000;
