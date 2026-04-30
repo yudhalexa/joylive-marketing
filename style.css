@@ -347,8 +347,15 @@ progress::-moz-progress-bar {
     text-align: center;
     align-items: center;
     cursor: auto;
-    padding: 50px 0;
-    gap: 50px;
+    padding: 30px 0;
+    gap: 30px;
+}
+
+.redirect {
+    color: var(--joy-red);
+    font-family: 'Inria Sans';
+    font-weight: bold;
+    font-size: 18px;
 }
 
 @media (min-width: 720px) {
@@ -416,5 +423,10 @@ progress::-moz-progress-bar {
         height: 100%;
         object-fit: contain;
         aspect-ratio: unset;
+    }
+
+    .redirect:hover {
+        text-decoration: underline;
+        cursor: pointer;
     }
 }
