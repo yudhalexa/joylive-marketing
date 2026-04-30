@@ -144,6 +144,12 @@ function skip(seconds) {
     video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
 }
 
+// document.getElementById("redirect").onclick = function() {
+//     this.style.textDecoration = 'underline';
+//     location.href = "https://tour.joylive.id";
+// }
+
+
 // google drive API
 const roomFileMap = {
     'superior-twin':{

@@ -356,6 +356,7 @@ progress::-moz-progress-bar {
     font-family: 'Inria Sans';
     font-weight: bold;
     font-size: 18px;
+    cursor: pointer;
 }
 
 @media (min-width: 720px) {
