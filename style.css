@@ -217,7 +217,7 @@ img {
     align-items: center;
 }
 
-progress {
+.video-controls progress {
     display: block;
     width: 175px;
     height: 3px;
@@ -230,17 +230,17 @@ progress {
     background-color: rgba(255, 255, 255, 50%) !important;
 }
 
-progress::-webkit-progress-bar {
+.video-controls progress::-webkit-progress-bar {
     background-color: rgba(255, 255, 255, 50%);
     border-radius: 2px;
 }
 
-progress::-webkit-progress-value {
+.video-controls progress::-webkit-progress-value {
     background-color: white;
     border-radius: 2px;
 }
 
-progress::-moz-progress-bar {
+.video-controls progress::-moz-progress-bar {
     background-color: white !important;
 }
 
