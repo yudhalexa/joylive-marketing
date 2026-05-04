@@ -210,6 +210,13 @@ img {
     align-self: stretch;
 }
 
+.progress-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 progress {
     display: block;
     width: 175px;
