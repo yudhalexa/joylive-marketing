@@ -197,30 +197,31 @@ img {
 }
 
 .controls-bottom {
-    display: -webkit-flex;
+    /* display: -webkit-flex; */
     display: flex;
-    -webkit-flex-direction: column;
+    /* -webkit-flex-direction: column; */
     flex-direction: column;
-    -webkit-justify-content: center;
+    /* -webkit-justify-content: center;
     justify-content: center;
-    -webkit-align-items: center;
+    -webkit-align-items: center; */
     align-items: center;
     gap: 14px;
     width: 100%;
-    align-self: stretch;
+    /* align-self: stretch; */
 }
 
-.progress-wrap {
+/* .progress-wrap {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .video-controls progress {
     display: block;
     width: 175px;
     height: 3px;
+    margin: 0 auto;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
