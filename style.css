@@ -205,10 +205,10 @@ img {
     /* -webkit-justify-content: center;
     justify-content: center;
     -webkit-align-items: center; */
-    /* align-items: center; */
+    align-items: center;
     gap: 14px;
-    /* width: 100%;
-    text-align: center;
+    width: 100%;
+    /* text-align: center;
     box-sizing: border-box; */
     /* align-self: stretch; */
 }
