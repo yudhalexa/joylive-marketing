@@ -175,12 +175,16 @@ img {
     overflow: hidden;
     max-height: 100vh;
     -webkit-overflow-scrolling: touch;
+    isolation: isolate;
+    z-index: 0;
 }
 
 .video-controls {
     position: absolute;
     z-index: 2;
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
@@ -189,14 +193,21 @@ img {
     box-sizing: border-box;
     top: 0;
     left: 0;
+    right: 0;
 }
 
 .controls-bottom {
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -webkit-justify-content: center;
     justify-content: center;
+    -webkit-align-items: center;
     align-items: center;
     gap: 14px;
+    width: 100%;
+    align-self: stretch;
 }
 
 progress {
@@ -277,6 +288,8 @@ progress::-moz-progress-bar {
 }
 
 .room-text {
+    position: relative;
+    z-index: 1;
     background-color: white;
     color: rgba(0, 0, 0, 75%);
     height: 70px;
