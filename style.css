@@ -175,8 +175,6 @@ img {
     overflow: hidden;
     /* max-height: 100vh; */
     -webkit-overflow-scrolling: touch;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 }
 
 .video-controls {
@@ -207,8 +205,7 @@ img {
     -webkit-align-items: center; */
     align-items: center;
     gap: 14px;
-    /* width: 100%; */
-    width: 340px;
+    width: 100%;
     /* text-align: center;
     box-sizing: border-box; */
     /* align-self: stretch; */
@@ -304,8 +301,11 @@ img {
 }
 
 .room-text {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
     background-color: white;
     color: rgba(0, 0, 0, 75%);
     height: 70px;
