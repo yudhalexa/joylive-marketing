@@ -173,9 +173,8 @@ img {
     width: 100%;
     aspect-ratio: 2 / 3;
     overflow: hidden;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     -webkit-overflow-scrolling: touch;
-    z-index: 0;
 }
 
 .video-controls {
