@@ -175,7 +175,6 @@ img {
     overflow: hidden;
     max-height: 100vh;
     -webkit-overflow-scrolling: touch;
-    isolation: isolate;
     z-index: 0;
 }
 
@@ -279,8 +278,8 @@ img {
     gap: 5px;
     /* width: 100%; */
     /* box-sizing: border-box; */
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 .controls-icon button {
@@ -315,6 +314,11 @@ img {
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.controls-bottom .controls-icon {
+    justify-content: center;
+    width: 100%;
 }
 
 .contact-us {
