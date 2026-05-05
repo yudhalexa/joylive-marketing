@@ -175,6 +175,8 @@ img {
     overflow: hidden;
     /* max-height: 100vh; */
     -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .video-controls {
@@ -301,26 +303,8 @@ img {
     filter: drop-shadow(0 0 4px rgba(0, 0, 0, 25%));
 }
 
-/* .room-text {
-    position: relative;
-    z-index: 1;
-    background-color: white;
-    color: rgba(0, 0, 0, 75%);
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Inria Sans';
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-}*/
-
 .room-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: 1;
     background-color: white;
     color: rgba(0, 0, 0, 75%);
