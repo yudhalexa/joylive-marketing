@@ -19,7 +19,7 @@ function jingle() {
     }
 }
 
-// toggle video icons
+// toggle video icons & page titles
 const front = document.querySelector('.front');
 const ogFront = front.innerHTML;
 
@@ -49,6 +49,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             });
             this.style.color = 'var(--joy-teal)';
 
+            document.title = "Step Inside - JOYLIVE BSD CITY"
         } else {
             frontDiv.style.display = 'none';
             allRooms.forEach(s => {
@@ -59,6 +60,9 @@ document.querySelectorAll('.icon-room').forEach(icon => {
 
             const activeVideo = document.querySelector(`.front-view .room[data-room="${target}"] video`);
             if (activeVideo) activeVideo.play();
+
+            const roomName = document.querySelector(`.front-view .room[data-room="${target}"] .room-text span`);
+            document.title = `${roomName.textContent.trim()} - JOYLIVE BSD CITY`
 
             this.classList.add('active');
             this.style.transition = '0.3s ease-out';
