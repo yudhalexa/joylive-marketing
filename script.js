@@ -110,11 +110,21 @@ function fullscreen() {
     if (!roomVideo) return;
 
     if (!document.fullscreenElement) {
-        roomVideo.requestFullscreen();
+        roomVideo.requestFullscreen().then(() => {
+            if (screen.orientation?.lock) {
+                screen.orientation.lock('portrait').catch(() => {
+
+                });
+            }
+        });
         maxIcon.style.display = 'none';
         minIcon.style.display = 'block';
     } else {
-        document.exitFullscreen();
+        document.exitFullscreen().then(() => {
+            if (screen.orientation?.unlock) {
+                screen.orientation.unlock();
+            }
+        });
         minIcon.style.display = 'none';
         maxIcon.style.display = 'block';
     }
