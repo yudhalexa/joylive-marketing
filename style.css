@@ -78,11 +78,6 @@ img {
     cursor: pointer;
 }
 
-.floating-jingle button svg {
-    width: 100%;
-    height: 100%;
-}
-
 .video-icons {
     width: 100%;
     overflow-x: auto;
