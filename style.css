@@ -78,6 +78,11 @@ img {
     cursor: pointer;
 }
 
+.floating-jingle button svg {
+    width: 24px;
+    height: 24px;
+}
+
 .video-icons {
     width: 100%;
     overflow-x: auto;
@@ -130,6 +135,7 @@ img {
 
 .front-view {
     aspect-ratio: 2 / 3;
+    background-color: var(--joy-red);
 }
 
 .front-view .room {
