@@ -20,9 +20,6 @@ function jingle() {
 }
 
 // toggle video icons & page titles
-const front = document.querySelector('.front');
-const ogFront = front.innerHTML;
-
 document.querySelectorAll('.icon-room').forEach(icon => {
     icon.addEventListener('click', function() {
         const clicked = this.classList.contains('active');
@@ -158,12 +155,6 @@ function skip(seconds) {
     video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
 }
 
-// document.getElementById("redirect").onclick = function() {
-//     this.style.textDecoration = 'underline';
-//     location.href = "https://tour.joylive.id";
-// }
-
-
 // google drive API
 const roomFileMap = {
     'superior-twin':{
@@ -198,7 +189,7 @@ const roomFileMap = {
         video: 'gym.mp4',
         image: ['gym.jpg', 'gym.jpeg']
     },
-    'in-room-spa':{
+    'in-room-spa':{ // might remove
         video: 'spa.mp4',
         image: ['spa.jpg', 'spa.jpeg']
     },
@@ -215,8 +206,6 @@ const roomFileMap = {
 const API_BASE = (window.location.hostname === 'joylive.test' || window.location.hostname === 'localhost') 
   ? 'http://localhost:3000' 
   : '';
-
-fetch(`${API_BASE}/api/media`)
 
 fetch('/api/media')
     .then(r => r.json())
