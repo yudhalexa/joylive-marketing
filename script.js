@@ -159,35 +159,43 @@ function skip(seconds) {
 const roomFileMap = {
     'superior-twin':{
         video: 'superior_twin.mp4',
-        image: ['superior_twin.jpg', 'superior_twin.jpeg']
+        image: ['superior_twin.jpg', 'superior_twin.jpeg'],
+        alt: "Joylive's twenty-eight square meters hotel room with twin beds."
     },
     'superior-double':{
         video: 'superior_double.mp4',
-        image: ['superior_double.jpg', 'superior_double.jpeg']
+        image: ['superior_double.jpg', 'superior_double.jpeg'],
+        alt: "Joylive's twenty-eight square meters room with a double-sized bed."
     },
     'deluxe-room':{
         video: 'deluxe_room.mp4',
-        image: ['deluxe_room.jpg', 'deluxe_room.jpeg']
+        image: ['deluxe_room.jpg', 'deluxe_room.jpeg'],
+        alt: "Joylive's thirty-two square meters room with a double sized bed and an extra desk space."
     },
     'meet-space-a':{
         video: 'meet_space_a.mp4',
-        image: ['meet_space_a.jpg', 'meet_space_a.jpeg']
+        image: ['meet_space_a.jpg', 'meet_space_a.jpeg'],
+        alt: "One of Joylive's meeting rooms, set up with arranged chairs and a slideshow presentation on the stage."
     },
     'meet-space-b':{
         video: 'meet_space_b.mp4',
-        image: ['meet_space_b.jpg', 'meet_space_b.jpeg']
+        image: ['meet_space_b.jpg', 'meet_space_b.jpeg'],
+        alt: "One of Joylive's meeting rooms, set up with a podium on the stage and chairs arranged in separate tables."
     },
     'meet-space-c':{ 
         video: 'meet_space_c.mp4',
-        image: ['meet_space_c.jpg', 'meet_space_c.jpeg']
+        image: ['meet_space_c.jpg', 'meet_space_c.jpeg'],
+        alt: "One of Joylive's meeting rooms, smaller than the other two, with arranged sets of tables and chairs and whiteboards inside."
     },
     'soul-kitchen':{ 
         video: 'soul_kitchen.mp4',
-        image: ['soul_kitchen.jpg', 'soul_kitchen.jpeg']
+        image: ['soul_kitchen.jpg', 'soul_kitchen.jpeg'],
+        alt: "Soul Kitchen, Joylive's restaurant, sat on the mezzanine floor of the lobby. The tour shows the wider dining area of Soul Kitchen."
     },
     'gym':{
         video: 'gym.mp4',
-        image: ['gym.jpg', 'gym.jpeg']
+        image: ['gym.jpg', 'gym.jpeg'],
+        alt: "Joylive's small gym, with various fitness equipments and semi-mirrored walls inside."
     },
     'in-room-spa':{ // might remove
         video: 'spa.mp4',
@@ -195,11 +203,13 @@ const roomFileMap = {
     },
     'laundromat':{
         video: 'laundromat.mp4',
-        image: ['laundromat.jpg', 'laundromat.jpeg']
+        image: ['laundromat.jpg', 'laundromat.jpeg'],
+        alt: "Joylive's laundromat, indicated by the sign outside of the room that says 'Laundromat.' The video shows it's small laundry room with multiple washing machines and an ironing board guests can use."
     },
     'musholla':{
         video: 'musholla.mp4',
-        image: ['musholla.jpg', 'musholla.jpeg']
+        image: ['musholla.jpg', 'musholla.jpeg'],
+        alt: "Joylive's prayer room, indicated by the sign outside of it that says 'Musholla.' The video shows religious rugs sprawled on the floor, along with praying equipments."
     },
 };
 
@@ -235,6 +245,7 @@ fetch('/api/media')
             const imgUrl = `${API_BASE}/api/file/${imgId}`;
             console.log(`[${room}] loading image:`, imgUrl);
             imgEl.src = imgUrl;
+            imgEl.alt = names.alt || '';
             imgEl.onerror = function() {
                 this.onerror = null;
                 this.src = "./marketing-assets/fallback-img.jpg";
