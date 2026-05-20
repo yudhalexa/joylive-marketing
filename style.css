@@ -440,6 +440,7 @@ img {
 
     .controls-bottom {
         width: 293px;
+        flex-direction: row;
     }
 
     .room-video:fullscreen {
