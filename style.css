@@ -459,7 +459,7 @@ footer span {
         width: 100%;
         height: 100%;
         aspect-ratio: unset;
-        background-color: var(--joy-purple);
+        background-color: rgba(0, 0, 0, 50%);
     }
 
     .room-video:fullscreen video {
@@ -491,7 +491,7 @@ footer span {
         width: 100%;
         height: 100%;
         aspect-ratio: unset;
-        background-color: var(--joy-purple);
+        background-color: rgba(0, 0, 0, 50%);
     }
 
     .room-video:-webkit-full-screen video {
@@ -523,7 +523,7 @@ footer span {
         width: 100%;
         height: 100%;
         aspect-ratio: unset;
-        background-color: var(--joy-purple);
+        background-color: rgba(0, 0, 0, 50%);
     }
 
     .room-video:-moz-full-screen video {

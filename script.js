@@ -43,6 +43,11 @@ document.querySelectorAll('.icon-room').forEach(icon => {
                 s.classList.remove('active');
                 const v = s.querySelector('video');
                 if (v) { v.pause(); v.currentTime = 0; }
+
+                const playIcon = s.querySelector('.icon-play');
+                const pauseIcon = s.querySelector('.icon-pause');
+                if (playIcon) playIcon.style.display = 'none';
+                if (pauseIcon) pauseIcon.style.display = 'block';
             });
             this.style.color = 'var(--joy-teal)';
 
