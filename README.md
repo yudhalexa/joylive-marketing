@@ -8,11 +8,6 @@
 # Project Details
 This is a project from my 5-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch.
 
-<!-- This site uses:
-* Plain HTML/CSS/Javascript
-* Apache server
-* Node.js server -->
-
 ## Features
 <p align="center">
   <img src="docs/screenshot.jpeg" width="200" border="1">
@@ -36,24 +31,27 @@ The site offers a highlight reel-like interface to display a digital showcase of
 Once a room icon is clicked, a video of its tour will play with custom controls, as well as the hotel's jingle on loop which can be turned off anytime through the floating icon on the bottom right.
 
 ## Usage
-So far in its development, this website uses a Google Drive folder with a service account to provide a CMS-like mechanism for hotel staff to change content anytime. It requires a separate Node server to run in the background for the Google API to fetch and load the media from the Drive folder.
+### Requirements
+- Node.js
+- PM2
+- `.env` file with service account details
+- `credentials.json` with API credentials
 
-One thing to note is that an additional `.env` file and a `credentials.json` are necessary to handle the API. These two files include the email of the service account used to make the content load, as well as the API key for the Google Drive folder.
+This website uses a Google Drive folder with a service account to provide a CMS-like mechanism for hotel staff to change content anytime. It requires a separate Node server to run in the background for the Google API to fetch and load the media from the Drive folder.
 
-To load the CMS, make sure you have [Node.js](https://nodejs.org/en/download) and PM2 installed.
 ``` cmd
 npm install -g pm2
 ```
-After that, navigate to the `cms` folder and run `npm install` which will install the requirements for the Express server and Google Drive API to run.
+Navigate to the `cms` folder and run `npm install` which will install the requirements for the Express server and Google Drive API to run.
 ``` cmd
 cd cms
 npm install
 ```
 Once everything is installed, register PM2 as a startup service for the server to run automatically. The startup only needs to be done once.
 
-****Windows only.***
+> Windows only.
 ``` cmd
-pm2-windows-startup installed
+pm2-windows-startup install
 ```
 OR
 ``` cmd

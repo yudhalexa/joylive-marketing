@@ -240,6 +240,7 @@ fetch('/api/media')
             const videoUrl = `${API_BASE}/api/file/${fileIndex[names.video]}`;
             console.log(`[${room}] loading video:`, videoUrl);
             videoEl.src = videoUrl;
+            videoEl.setAttribute('poster', './marketing-assets/video-poster.png');
             videoEl.load();
         }
 
