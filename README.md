@@ -20,7 +20,6 @@ The site offers a highlight reel-like interface to display a digital showcase of
 * Gym
 * Laundromat
 * Musholla
-* Spa
 
 <p align="center">
   <img src="docs/reel-scroll.gif" alt="Reel Scroll" width="200" border="1">

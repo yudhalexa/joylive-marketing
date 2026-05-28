@@ -202,10 +202,6 @@ const roomFileMap = {
         image: ['gym.jpg', 'gym.jpeg'],
         alt: "Joylive's small gym, with various fitness equipments and semi-mirrored walls inside."
     },
-    'in-room-spa':{ // might remove
-        video: 'spa.mp4',
-        image: ['spa.jpg', 'spa.jpeg']
-    },
     'laundromat':{
         video: 'laundromat.mp4',
         image: ['laundromat.jpg', 'laundromat.jpeg'],
