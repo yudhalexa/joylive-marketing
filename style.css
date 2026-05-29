@@ -558,5 +558,19 @@ footer span {
 }
 
 @media (prefers-color-scheme: dark) {
-    
+    html {
+        background-color: black;
+    }
+
+    header span {
+        color: white;
+    }
+
+    .icon-room {
+        color: white;
+    }
+
+    footer {
+        color: white;
+    }
 }
