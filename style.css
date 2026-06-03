@@ -404,13 +404,22 @@ img {
 footer {
     font-family: 'Inter';
     font-size: 11px;
-}
-
-footer span {
-    text-align: center;
     display: flex;
     justify-content: center;
-    padding-bottom: 10px;
+}
+
+footer p {
+    margin-top: 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--joy-teal);
+}
+
+footer a:hover {
+    color: var(--joy-orange);
+    transition: 0.3s ease-out;
 }
 
 @media (min-width: 720px) {
