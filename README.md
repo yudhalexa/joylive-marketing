@@ -1,9 +1,9 @@
 [![Figma Prototype](https://img.shields.io/badge/Figma-4B0738?logo=figma&logoColor=white)](https://www.figma.com/proto/4JyjKDtydJk6yrQaXoldvu/Video-Marketing-Joylive---Mobile?node-id=362-3700&t=UqhWWzIQLQu4Zmzm-1)
 ![HTML](https://img.shields.io/badge/HTML/CSS-BF1E2D?logo=htmx)
 ![JS](https://img.shields.io/badge/JavaScript-BF1E2D?logo=javascript&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-0C6E77?logo=nodedotjs&logoColor=white)
-![Apache](https://img.shields.io/badge/Apache-0C6E77?logo=apache&logoColor=white)
-![Laragon](https://img.shields.io/badge/Laragon-46C0CB?logo=laragon&logoColor=white)
+[![Node.js](https://img.shields.io/badge/Node.js-0C6E77?logo=nodedotjs&logoColor=white)](https://nodejs.org/en/download)
+[![Apache](https://img.shields.io/badge/Apache-0C6E77?logo=apache&logoColor=white)](https://httpd.apache.org/download.cgi)
+[![Laragon](https://img.shields.io/badge/Laragon-46C0CB?logo=laragon&logoColor=white)](https://laragon.org/download)
 
 # Project Details
 This is a project from my 5-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch.
