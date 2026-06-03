@@ -1,5 +1,5 @@
 // floating jingle toggle
-let jingleMp3 = new Audio('./marketing-assets/jingle.mp3');
+let jingleMp3 = new Audio('./assets/jingle.mp3');
 jingleMp3.loop = true;
 
 function jingle() {
@@ -236,7 +236,7 @@ fetch('/api/media')
             const videoUrl = `${API_BASE}/api/file/${fileIndex[names.video]}`;
             console.log(`[${room}] loading video:`, videoUrl);
             videoEl.src = videoUrl;
-            videoEl.setAttribute('poster', './marketing-assets/video-poster.png');
+            videoEl.setAttribute('poster', './assets/video-poster.png');
             videoEl.load();
         }
 
@@ -250,10 +250,10 @@ fetch('/api/media')
             imgEl.alt = names.alt || '';
             imgEl.onerror = function() {
                 this.onerror = null;
-                this.src = "./marketing-assets/fallback-img.jpg";
+                this.src = "./assets/fallback-img.jpg";
             };
         } else if (imgEl) {
-            imgEl.src = "./marketing-assets/fallback-img.jpg";
+            imgEl.src = "./assets/fallback-img.jpg";
         }
     });
     })
