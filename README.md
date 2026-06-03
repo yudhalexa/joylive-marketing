@@ -9,9 +9,9 @@
 This is a project from my 5-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch.
 
 ## Features
-<p align="center">
+<!-- <p align="center">
   <img src="docs/screenshot.jpeg" width="200" border="1">
-</p>
+</p> -->
 
 The site offers a highlight reel-like interface to display a digital showcase of rooms and facilities at [Joylive BSD City](https://www.google.com/maps/place/Joylive+BSD+City/@-6.302943,106.638214,17z/data=!4m9!3m8!1s0x2e69fb736dab5b15:0x62b024ef8f72d35f!5m2!4m1!1i2!8m2!3d-6.3029434!4d106.6382135!16s%2Fg%2F11rws99_jb?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D), which are listed below.
 * Rooms (Superior/Deluxe)
@@ -21,11 +21,11 @@ The site offers a highlight reel-like interface to display a digital showcase of
 * Laundromat
 * Musholla
 
-<p align="center">
+<!-- <p align="center">
   <img src="docs/reel-scroll.gif" alt="Reel Scroll" width="200" border="1">
   &nbsp;&nbsp;&nbsp;
   <img src="docs/video-clicked.gif" alt="Video Clicked" width="200" border="1">
-</p>
+</p> -->
 
 Once a room icon is clicked, a video of its tour will play with custom controls, as well as the hotel's jingle on loop which can be turned off anytime through the floating icon on the bottom right.
 
