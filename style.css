@@ -581,4 +581,24 @@ footer a:hover {
     footer {
         color: white;
     }
+
+    .error-text {
+        color: white;
+    }
+
+    .error-head {
+        color: white;
+    }
+
+    footer a {
+        color: var(--joy-lightblue);
+    }
+
+    footer a:hover {
+        color: var(--joy-yellow);
+    }
+
+    .redirect {
+        color: var(--joy-yellow);
+    }
 }
