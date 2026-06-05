@@ -376,6 +376,14 @@ img {
     font-size: 40px;
 }
 
+.error-body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .error-text {
     color: rgba(0, 0, 0, 75%);
     font-family: 'Inter';
@@ -405,6 +413,8 @@ footer {
     font-size: 11px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer p {
