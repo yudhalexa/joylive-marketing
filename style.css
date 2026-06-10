@@ -45,6 +45,10 @@ img {
     width: auto !important;
 }
 
+.header span {
+    padding: 0px 12px;
+}
+
 .floating-jingle {
     width: 40px;
     height: 40px;
