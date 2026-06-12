@@ -6,7 +6,7 @@
 [![Laragon](https://img.shields.io/badge/Laragon-46C0CB?logo=laragon&logoColor=white)](https://laragon.org/download)
 
 # Project Details
-This is a project from my 5-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch.
+This is a project from my 5-month internship at Joylive BSD City. From a single concept, everything was sketched, drafted, designed, prototyped, coded, and launched from scratch. This site was deployed as a subdomain to [Joylive BSD City's main website.](https://joylive.id)
 
 ## Features
 <!-- <p align="center">
