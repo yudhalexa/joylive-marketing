@@ -22,6 +22,10 @@ img {
     height: auto;
 }
 
+span, p {
+    cursor: default;
+}
+
 .container {
     justify-content: space-between;
     display: flex;
@@ -218,11 +222,11 @@ img {
     border: none;
     border-radius: 2px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 50%) !important;
+    background-color: rgba(255, 255, 255, 35%) !important;
 }
 
 .video-controls progress::-webkit-progress-bar {
-    background-color: rgba(255, 255, 255, 50%);
+    background-color: rgba(255, 255, 255, 35%) !important;
     border-radius: 2px;
 }
 
@@ -435,7 +439,7 @@ footer a:hover {
     transition: 0.3s ease-out;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 640px) {
     .video-icons {
         text-align: center;
         overflow-x: auto;

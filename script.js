@@ -136,6 +136,26 @@ function fullscreen() {
     }
 }
 
+document.addEventListener('fullscreenchange', syncFullScreen);
+document.addEventListener('webkitfullscreenchange', syncFullScreen);
+document.addEventListener('mozfullscreenchange', syncFullScreen);
+
+function syncFullScreen() {
+    const activeRoom = document.querySelector('.front-view .room.active');
+    if (!activeRoom) return;
+
+    const maxIcon = activeRoom.querySelector('.icon-maximize');
+    const minIcon = activeRoom.querySelector('.icon-minimize');
+
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        minIcon.style.display = 'none';
+        maxIcon.style.display = 'block';
+    } else {
+        maxIcon.style.display = 'none';
+        minIcon.style.display = 'block';
+    }
+}
+
 document.querySelectorAll('.room').forEach(room => {
     const video = room.querySelector('video');
     const bar = room.querySelector('progress');
