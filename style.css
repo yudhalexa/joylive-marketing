@@ -121,6 +121,25 @@ span, p {
     flex-shrink: 0;
 }
 
+.icon-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--joy-teal);
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 90px;
+    height: 110px;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.icon-map svg {
+    width: 60px !important;
+    height: 60px !important;
+}
+
 .icon-text{
     width: 85px;
     text-align: center;
@@ -138,16 +157,25 @@ span, p {
 }
 
 .front-view {
-    aspect-ratio: 2 / 3;
+    /* aspect-ratio: 2 / 3; */
     background-color: var(--joy-red);
 }
 
-.front-view .room {
+.front-view .room, .front-view .map{
     display: none;
 }
 
-.front-view .room.active {
+.front-view .room.active, .front-view .map.active {
     display: block;
+}
+
+.map-content {
+    aspect-ratio: 4 / 3;
+    background-color: #DED0CF;
+    height: 470px;
+    width: stretch;
+    display: flex;
+    justify-content: center;
 }
 
 .front {
@@ -581,6 +609,15 @@ footer a:hover {
         text-decoration: underline;
         cursor: pointer;
     }
+
+    .map-content {
+    aspect-ratio: 4 / 3;
+    background-color: #DED0CF;
+    height: 470px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+}
 }
 
 /* @media (prefers-color-scheme: dark) {

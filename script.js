@@ -20,22 +20,23 @@ function jingle() {
 }
 
 // toggle video icons & page titles
-document.querySelectorAll('.icon-room').forEach(icon => {
+document.querySelectorAll('.icon-room, .icon-map').forEach(icon => {
     icon.addEventListener('click', function() {
         const clicked = this.classList.contains('active');
         const target = this.dataset.room;
 
-        document.querySelectorAll('.icon-room').forEach(el => {
+        document.querySelectorAll('.icon-room, .icon-map').forEach(el => {
             el.classList.remove('active');
             el.style.backgroundColor = '';
             el.style.borderRadius = '';
             el.style.color = '';
             el.style.width = '';
-            el.querySelector('img').style.borderRadius = '30px';
+            const img = el.querySelector('img');
+            if (img) img.style.borderRadius = '30px';
         });
 
         const frontDiv = document.querySelector('.front');
-        const allRooms = document.querySelectorAll('.front-view .room');
+        const allRooms = document.querySelectorAll('.front-view .room, .front-view .map');
 
         if (clicked) {
             frontDiv.style.display = 'block';
@@ -63,7 +64,7 @@ document.querySelectorAll('.icon-room').forEach(icon => {
             const activeVideo = document.querySelector(`.front-view .room[data-room="${target}"] video`);
             if (activeVideo) activeVideo.play();
 
-            const roomName = document.querySelector(`.front-view .room[data-room="${target}"] .room-text span`);
+            const roomName = document.querySelector(`.front-view [data-room="${target}"] .room-text span`);
             document.title = `${roomName.textContent.trim()} - JOYLIVE BSD CITY`
 
             this.classList.add('active');
@@ -119,7 +120,6 @@ function fullscreen() {
         roomVideo.requestFullscreen().then(() => {
             if (screen.orientation?.lock) {
                 screen.orientation.lock('portrait').catch(() => {
-
                 });
             }
         });
